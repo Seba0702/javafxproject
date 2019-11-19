@@ -15,9 +15,13 @@ public class App extends Application {
 
     private static Scene scene;
 
+    static void setroot(String primary) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Fakta"), 640, 480);
+        scene = new Scene(loadFXML("Outside"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }

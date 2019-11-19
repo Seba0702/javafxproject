@@ -10,18 +10,18 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
+import javafx.scene.control.Button;
 /**
  * FXML Controller class
  *
  * @author svane
  */
-public class FaktaController implements Initializable {
+public class OutsideController implements Initializable {
+
 
     @FXML
-    private Button Outside;
-
+    private Button Fakta;
     /**
      * Initializes the controller class.
      */
@@ -29,10 +29,9 @@ public class FaktaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void goOutside(ActionEvent event) {
-        
-    }
     
+    @FXML
+    private void goFakta(ActionEvent event) {
+    }
+
 }

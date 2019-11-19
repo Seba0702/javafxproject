@@ -41,4 +41,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>FoodWaste_Semesterprojekt1_GUI</name>
 </project>
