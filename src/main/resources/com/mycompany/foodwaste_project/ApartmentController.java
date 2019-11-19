@@ -11,24 +11,24 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
+import javafx.scene.control.Button;
 /**
  * FXML Controller class
  *
  * @author svane
  */
-public class OutsideController implements Initializable {
+public class ApartmentController implements Initializable {
+
 
     @FXML
-    private Button apartment;
+    private Button outside;
     @FXML
-    private Button Fakta;
+    private Button kitchen;
     @FXML
-    private Button mcdonalds;
+    private Button livingroom;
     @FXML
-    private Button naturmarket;
-
+    private Button bedroom;
     /**
      * Initializes the controller class.
      */
@@ -36,25 +36,25 @@ public class OutsideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void goApartment(ActionEvent event) throws IOException {
-        App.setRoot("Apartment");
-    }
-
-    @FXML
-    private void goFakta(ActionEvent event) throws IOException {
-        App.setRoot("Fakta");
-    }
-
-    @FXML
-    private void goMcdonalds(ActionEvent event) throws IOException {
-        App.setRoot("mcDonalds");
-    }
-
-    @FXML
-    private void goNaturmarket(ActionEvent event) throws IOException {
-        App.setRoot("Naturmarket");
-    }
     
+    @FXML
+    private void goOutside(ActionEvent event) throws IOException {
+        App.setRoot("Outside");
+    }
+
+    @FXML
+    private void goKitchen(ActionEvent event) throws IOException {
+        App.setRoot("Kitchen");
+    }
+
+    @FXML
+    private void goLivingroom(ActionEvent event) throws IOException {
+        App.setRoot("Livingroom");
+    }
+
+    @FXML
+    private void goBedroom(ActionEvent event) throws IOException {
+        App.setRoot("Bedroom");
+    }
+
 }

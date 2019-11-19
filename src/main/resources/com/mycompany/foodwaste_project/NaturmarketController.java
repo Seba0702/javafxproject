@@ -18,11 +18,11 @@ import javafx.scene.control.Button;
  *
  * @author svane
  */
-public class FaktaController implements Initializable {
+public class NaturmarketController implements Initializable {
 
 
     @FXML
-    private Button outside;
+    private Button Outside;
     /**
      * Initializes the controller class.
      */

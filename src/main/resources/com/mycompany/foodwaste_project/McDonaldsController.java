@@ -18,7 +18,7 @@ import javafx.scene.control.Button;
  *
  * @author svane
  */
-public class FaktaController implements Initializable {
+public class McDonaldsController implements Initializable {
 
 
     @FXML

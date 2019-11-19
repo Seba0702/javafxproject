@@ -11,24 +11,20 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
+import javafx.scene.control.Button;
 /**
  * FXML Controller class
  *
  * @author svane
  */
-public class OutsideController implements Initializable {
+public class KitchenController implements Initializable {
+
 
     @FXML
-    private Button apartment;
+    private Button entrance;
     @FXML
-    private Button Fakta;
-    @FXML
-    private Button mcdonalds;
-    @FXML
-    private Button naturmarket;
-
+    private Button livingroom;
     /**
      * Initializes the controller class.
      */
@@ -36,25 +32,15 @@ public class OutsideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    
     @FXML
-    private void goApartment(ActionEvent event) throws IOException {
+    private void goEntrance(ActionEvent event) throws IOException {
         App.setRoot("Apartment");
     }
 
     @FXML
-    private void goFakta(ActionEvent event) throws IOException {
-        App.setRoot("Fakta");
+    private void goLivingroom(ActionEvent event) throws IOException {
+        App.setRoot("Livingroom");
     }
 
-    @FXML
-    private void goMcdonalds(ActionEvent event) throws IOException {
-        App.setRoot("mcDonalds");
-    }
-
-    @FXML
-    private void goNaturmarket(ActionEvent event) throws IOException {
-        App.setRoot("Naturmarket");
-    }
-    
 }

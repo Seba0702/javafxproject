@@ -18,11 +18,13 @@ import javafx.scene.control.Button;
  *
  * @author svane
  */
-public class FaktaController implements Initializable {
+public class BedroomController implements Initializable {
 
 
     @FXML
-    private Button outside;
+    private Button livingroom;
+    @FXML
+    private Button entrance;
     /**
      * Initializes the controller class.
      */
@@ -32,8 +34,13 @@ public class FaktaController implements Initializable {
     }    
     
     @FXML
-    private void goOutside(ActionEvent event) throws IOException {
-        App.setRoot("Outside");
+    private void goLivingroom(ActionEvent event) throws IOException {
+        App.setRoot("Livingroom");
+    }
+
+    @FXML
+    private void goEntrance(ActionEvent event) throws IOException {
+        App.setRoot("Apartment");
     }
 
 }

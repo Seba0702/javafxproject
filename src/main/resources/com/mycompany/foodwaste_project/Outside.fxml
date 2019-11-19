@@ -17,9 +17,9 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" text="Apartment" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+      <Button fx:id="apartment" mnemonicParsing="false" onAction="#goApartment" text="Apartment" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
       <Button fx:id="Fakta" mnemonicParsing="false" onAction="#goFakta" text="Fakta" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="McDonalds" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
-      <Button mnemonicParsing="false" text="Loes-Market" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="mcdonalds" mnemonicParsing="false" onAction="#goMcdonalds" text="McDonalds" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+      <Button fx:id="naturmarket" mnemonicParsing="false" onAction="#goNaturmarket" text="Loes-Market" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
