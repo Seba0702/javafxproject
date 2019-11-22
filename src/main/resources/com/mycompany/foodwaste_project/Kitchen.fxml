@@ -19,7 +19,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="entrance" mnemonicParsing="false" onAction="#goEntrance" text="Apartment" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="entrance" mnemonicParsing="false" onAction="#goEntrance" text="Entrance" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <Button fx:id="livingroom" mnemonicParsing="false" onAction="#goLivingroom" text="Livingroom" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
    </children>
 </GridPane>
