@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" styleClass="bodybg" stylesheets="@Startmenu_asset/background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.foodwaste_project.StartmenuController">
+   <children>
+      <AnchorPane layoutX="66.0" layoutY="14.0" prefHeight="304.0" prefWidth="568.0">
+         <children>
+            <VBox prefHeight="122.0" prefWidth="568.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FoodWaste" textAlignment="CENTER" wrappingWidth="566.1363220214844">
+                     <font>
+                        <Font size="45.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to FoodWaste" wrappingWidth="253.96875">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your name in the box to heard about the game">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <TextField fx:id="name" layoutY="122.0" onAction="#setName" prefHeight="26.0" prefWidth="200.0" promptText="Enter First name" />
+            <Button fx:id="begin" layoutX="74.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Begin" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

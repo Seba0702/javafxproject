@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.mycompany.foodwaste_project.Intro2Controller">
+   <children>
+      <Text layoutX="70.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is a  game about food waste as u might have guessed" />
+      <Text layoutX="70.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In this game you will try to experience how a common household creates" />
+      <Text layoutX="70.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="food waste on a daily basis" />
+      <Text layoutX="70.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type '&quot; + CommandWord.HELP + &quot;' if you need help during the game" />
+      <Text layoutX="70.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You will start in the streets of Copenhagen" />
+      <Text layoutX="70.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ready to start?" />
+      <Button fx:id="game" layoutX="70.0" layoutY="276.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
+   </children>
+</AnchorPane>
