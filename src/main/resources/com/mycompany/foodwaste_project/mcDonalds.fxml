@@ -17,6 +17,6 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="outside" mnemonicParsing="false" onAction="#goOutside" text="Outside" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+      <Button fx:id="outside" mnemonicParsing="false" onAction="#goOutside" text="Outside" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
