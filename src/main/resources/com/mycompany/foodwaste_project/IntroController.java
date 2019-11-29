@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import com.mycompany.foodwaste_project.AlertBox;
 import javafx.scene.control.Button;
 /**
  * FXML Controller class
@@ -40,7 +40,7 @@ public class IntroController implements Initializable {
 
     @FXML
     private void ifNo(ActionEvent event) {
-        System.exit(0);
+        no.setOnAction(e -> AlertBox.display("Alert!", "Are you sure you want to leave?"));
     }
 
 }
