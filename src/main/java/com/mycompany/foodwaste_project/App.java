@@ -6,14 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import javafx.application.Platform;
 import javafx.stage.StageStyle;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
     
     private static Scene scene;

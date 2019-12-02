@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.foodwaste_project.domain;
 
-/**
- *
- * @author mathi
- */
 public class Item {
     
     private final String name, description;
@@ -26,8 +17,7 @@ public class Item {
        this.price = price;
        this.buyable = buyable;
        this.isFood = isFood;
-       this.nutrition = nutrition;
-       
+       this.nutrition = nutrition; 
     }
     
     public boolean isBuyable()

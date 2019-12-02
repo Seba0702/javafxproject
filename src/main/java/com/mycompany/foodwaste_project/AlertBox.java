@@ -29,9 +29,6 @@ public class AlertBox {
         
         Scene scene = new Scene(layout);
         stage.setScene(scene);
-        stage.showAndWait();
-        
-        
-    }
-    
+        stage.showAndWait(); 
+    } 
 }
