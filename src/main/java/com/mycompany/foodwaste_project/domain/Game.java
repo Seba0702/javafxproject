@@ -134,7 +134,7 @@ public class Game
         
         // Create Quests
         
-        Quests questOne = new Quests( 2, "You need to pickup the key outside your apartmen, and unlock your hour door!", "You just unlocked your front door ", outside, key);
+        Quests questOne = new Quests( 2, "You need to pickup the key outside your apartment, and unlock your house door!", "You just unlocked your front door ", outside, key);
        
         questList.add(questOne);
         
