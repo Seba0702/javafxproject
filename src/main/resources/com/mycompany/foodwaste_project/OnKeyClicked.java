@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.foodwaste_project;
 
 import java.io.IOException;
@@ -16,10 +11,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Cavra
- */
 public class OnKeyClicked implements EventHandler<KeyEvent> {
 
     public void openStats(ActionEvent event) throws IOException {
