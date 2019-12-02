@@ -25,5 +25,6 @@
             <Image url="@Startmenu_asset/Character.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="buyButton" mnemonicParsing="false" onAction="#buyItems" text="Buy items" />
    </children>
 </GridPane>

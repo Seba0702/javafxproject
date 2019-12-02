@@ -8,6 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import com.mycompany.foodwaste_project.domain.monetarySystem;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class FaktaController implements Initializable {
 
@@ -22,6 +27,16 @@ public class FaktaController implements Initializable {
     @FXML
     private void goOutside(ActionEvent event) throws IOException {
         App.setRoot("Outside");
+    }
+    
+    @FXML
+    private void buyItems(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderTable.fxml"));
+        Parent parent = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setScene(new Scene(parent, 200, 400));
+        stage.show();
     }
 
 }
