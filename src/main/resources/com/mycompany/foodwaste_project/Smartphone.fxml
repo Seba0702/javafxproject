@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="277.0" styleClass="smartphonebg" stylesheets="@GUI_Images/Smartphone2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.foodwaste_project.SmartphoneController">
+   <top>
+      <ImageView fitHeight="14.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="39.0" />
+         </BorderPane.margin>
+         <image>
+            <Image url="@GUI_Images/phonebar.PNG" />
+         </image>
+      </ImageView>
+   </top>
+</BorderPane>
