@@ -6,6 +6,7 @@ package com.mycompany.foodwaste_project;
  * and open the template in the editor.
  */
 
+import com.mycompany.foodwaste_project.domain.Game;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.Stage;
@@ -22,21 +23,25 @@ import javafx.scene.control.Label;
  */
 public class StatsController implements Initializable {
 
-
+    Game g1 = Game.getInstance();
     @FXML
     private Label labelHealth;
     @FXML
     private Label labelHunger;
+    
     @FXML
     private Button closeButton;
     @FXML
     private Label labelMoney;
-    /**
-     * Initializes the controller class.
-     */
+  
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        labelHealth.setText(String.valueOf(g1.getHealth()));
+        labelHunger.setText(String.valueOf(g1.getHunger()));
+        labelMoney.setText(String.valueOf(g1.getMoney()));
     }    
     
     @FXML

@@ -1,5 +1,6 @@
 package com.mycompany.foodwaste_project.domain;
 
+
 public class Item {
     
     private final String name, description;
@@ -17,7 +18,8 @@ public class Item {
        this.price = price;
        this.buyable = buyable;
        this.isFood = isFood;
-       this.nutrition = nutrition; 
+       this.nutrition = nutrition;
+       
     }
     
     public boolean isBuyable()

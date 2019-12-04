@@ -4,7 +4,7 @@ public class monetarySystem {
     public double balance;
     
     public monetarySystem() {
-        balance = 4000;
+        balance = 8000;
     }
     
     public void Buy (double price) { 
@@ -13,6 +13,11 @@ public class monetarySystem {
         
     public double getBalance() {
         return balance;
+    }
+    
+    public void setBalance(double amount)
+    {
+        balance += amount;
     }
     
 }

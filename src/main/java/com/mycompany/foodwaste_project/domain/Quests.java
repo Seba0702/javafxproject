@@ -1,5 +1,6 @@
 package com.mycompany.foodwaste_project.domain;
 
+
 public class Quests {
     
     private final Room destination;

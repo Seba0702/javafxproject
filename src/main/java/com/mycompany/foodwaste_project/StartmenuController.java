@@ -1,5 +1,6 @@
 package com.mycompany.foodwaste_project;
 
+import com.mycompany.foodwaste_project.domain.Game;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +14,7 @@ import javafx.scene.control.TextField;
 public class StartmenuController implements Initializable {
     
     @FXML
-    private TextField name;
+    public TextField name;
     @FXML
     private Button begin;
     
@@ -24,12 +25,15 @@ public class StartmenuController implements Initializable {
     
     @FXML
     private void setName(ActionEvent event) {
-        name.getText();
+         String nameString = name.getText();
+         
     }
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         App.setRoot("Intro");
+        
+        
     }
 
 }

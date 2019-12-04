@@ -5,6 +5,7 @@
  */
 package com.mycompany.foodwaste_project;
 
+import com.mycompany.foodwaste_project.domain.Game;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +26,8 @@ import javafx.stage.StageStyle;
  * @author Cavra
  */
 public class OutsideController implements Initializable {
-
+    
+    Game g1 = Game.getInstance();
 
     @FXML
     private Button apartment;
@@ -50,6 +52,7 @@ public class OutsideController implements Initializable {
     @FXML
     private void goApartment(ActionEvent event) throws IOException {
         App.setRoot("Apartment");
+        
     }
 
     @FXML

@@ -1,34 +1,100 @@
 package com.mycompany.foodwaste_project.domain;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.ArrayList;
 
+// TEST
 public class Game 
 {
     Time time = new Time();
     private String name;
-    private final Parser parser;
+    private Parser parser;
     private Room currentRoom;
+ 
     
     Characters p1 = new Characters();
-    Point point = new Point();  
-    
+    Point point = new Point();
+    Smartphone ph = new Smartphone();
+    monetarySystem m1 = new monetarySystem();
     
     ArrayList<Item> inventory = new ArrayList();
     ArrayList<Quests> questList = new ArrayList();
+    ArrayList<Events> eventList = new ArrayList();
 
     public Game() 
     {
         createRooms();       
-        createPoints();
         parser = new Parser();
     }
     
+    private static Game sSoleInstance;
+    
+    public static Game getInstance()
+    {
+        if (sSoleInstance == null){ //if there is no instance available... create new one
+            sSoleInstance = new Game();
+        }
 
-    private void createRooms()
+        return sSoleInstance;
+    }
+    
+    public int getHealth()
+    {
+        return p1.health;
+    }
+    
+    public int getHunger()
+    {
+        return p1.hunger;
+    }
+    
+    public double getMoney()
+    {
+        return m1.balance;
+    }
+    
+    public void goOutside()
+    {
+       
+      //  goRoom(command);
+    }
+    
+    public void goApartment()
+    {
+    
+    }
+    
+    public void goKitchen()
+    {
+    
+    }
+    
+    public void goLivingroom()
+    {
+    
+    }
+    
+    public void goBedroom()
+    {
+        
+    }
+    
+    public void goSupermarked()
+    {
+    
+    }
+    
+    public void goMcDonalds()
+    {
+    
+    }
+    
+    public void goLoesMarket()
+    {
+    
+    }
+    
+    public void createRooms()
     {
         Room outside, apartment, kitchen, livingroom, bedroom, supermarked, McDonalds, loesMarket;
       
@@ -40,7 +106,6 @@ public class Game
         supermarked = new Room("in Fakta", true);
         McDonalds = new Room("at McDonalds", true);
         loesMarket = new Room("you have entered Loes-Market", true);
-        
         
         outside.setExit("fakta", supermarked);
         outside.setExit("apartment", apartment);
@@ -70,6 +135,7 @@ public class Game
 
         currentRoom = outside;
         
+       
         
         // Creating all the inventories for the rooms.
         
@@ -85,7 +151,7 @@ public class Game
         
         // Adding items to the specific rooms
         
-        Item meat, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key;
+        Item meat, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter;
         
         milk = new Item("milk", "This is milk!", 14, true, true, 20);
         meat = new Item("meat", "This is meat!", 35, true, true, 30);
@@ -98,8 +164,11 @@ public class Game
         chickennuggets = new Item("chickennuggets", "These are chicken nuggets", 25, true, true, 40);
         
         key = new Item("key", "This is your apartment key", 0, false, false, 0);
+        letter = new Item("letter", "This is a letter for your grandma", 0, false, false, 0);
 
         outsideItems.add(key);
+        
+        apartmentItems.add(letter);
        
         supermarkedItems.add(meat);
         supermarkedItems.add(milk);
@@ -125,30 +194,65 @@ public class Game
         
         // Create Quests
         
-        Quests questOne = new Quests( 2, "You need to pickup the key outside your apartment, and unlock your house door!", "You just unlocked your front door ", outside, key);
-       
+        Quests questOne = new Quests( 1, "You need to pickup the key outside your apartment, and unlock your house door!", "You just unlocked your front door.", outside, key);
+        Quests questTwo = new Quests(2, "You need to pickup the letter inside your apartment, it is a letter for your grandmar, you better bring it to post office in fakta.", "You just gave your letter to the post office.", supermarked, letter);
+     // Quests questThree = new Quests(4, "", ,);
+     // Quests questFour = new Quests(6, "", ,);
+     // Quests questFive = new Quests(7, "", ,);
+     
+     
         questList.add(questOne);
+        questList.add(questTwo);
+    //  questList.add(questThree);
+    //  questList.add(questFour);
+    //  questList.add(questFive);
+    
+        // Create Events
         
-       
+        Events e1 = new Events(3, "Instead of going to sleep, you went out with your friends. Doing the night you bought McDonalds and your food at home got spoiled.", 200);
+        Events e2 = new Events(5, "test", 150);
+        
+        eventList.add(e1);
+        eventList.add(e2);
+        
     }
     
     
-    
-    private void createPoints()
+    public void events()
     {
-      Point point = new Point();
-      
-      
-      
+        for(Events var : eventList)
+        {
+            if (var.getIsFinished()) continue;
+            
+            if (time.getDateOfDays() == var.getDay())
+            {
+                 
+            switch (var.getDay())
+                    {
+                        case 3:
+ 
+                            var.printDescription();
+                            m1.setBalance(var.getPenalty()); 
+                            inventory.forEach((items) -> 
+                            {
+                                items.setSpoilStatus(true);
+                            } );
+                            var.setEventTrue();
+                            break;
+                        case 5:
+                            var.printDescription();
+                            m1.setBalance(var.getPenalty());
+                            
+                            break;
+                        
+                        default:
+                            
+                            break;
+                    }
+            }
+        }
     }
-    public void givePoint()
-    {
-      Point point = new Point();
-      
-      
-      point.getPoint();
-      point.setPointPlusOne();
-    }
+    
    
     public void play() 
     {            
@@ -160,13 +264,14 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+       // System.out.println("Thank you for playing.  Good bye.");
     }
 
     private void printWelcome()
     {
-        Scanner scan = new Scanner(System.in);
         /*
+        Scanner scan = new Scanner(System.in);
+        
         System.out.println();
         System.out.println("Welcome to Food Waste!");
         System.out.println("What is your name?");
@@ -216,12 +321,12 @@ public class Game
         
         System.out.println("Ready to start?");
         String commandYesToBegin = scan.next();
-*/
+        
         time.setDate(1, 16);
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
         System.out.println("It is day: "+time.getDateOfDays()+" the clock is "+time.getDateOfHours());
-        listRoomItems();
+        listRoomItems();*/
     }
 
     private boolean processCommand(Command command) 
@@ -231,7 +336,7 @@ public class Game
         CommandWord commandWord = command.getCommandWord();
 
         if(commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
+           // System.out.println("I don't know what you mean...");
             return false;
         }
 
@@ -274,16 +379,22 @@ public class Game
         else if (commandWord == CommandWord.EAT) {
             eat(command);
         }
+        else if (commandWord == CommandWord.DRINK) {
+            eat(command);
+        }
         else if (commandWord == CommandWord.USE) {
             useItem(command);
+        } 
+        else if (commandWord == CommandWord.PHONE) {
+            phone();
         }
         return wantToQuit;
     }
 
     private void printHelp() 
     {
-        System.out.println("Your command words are:");
-        parser.showCommands();
+      //  System.out.println("Your command words are:");
+      //  parser.showCommands();
     }
     
     private void eat(Command command) 
@@ -292,30 +403,49 @@ public class Game
         
         for (Item var : inventory)
         {
-            
+
             
             if (var.getName().equals(item) && var.isFood())
             {
+                
                 if (var.getSpoiledStatus())
                 {
+                  /*  System.out.println("");
                     System.out.println("You just ate spoiled food, and lost 10 hp");
+                    System.out.println(""); */
                     p1.setHealth(10);
                     inventory.remove(var);
                     return;
                 }
                 else
                 {
-                    inventory.remove(var);
-                    p1.hunger += var.getNutrition();
-                    System.out.println("You just ate a " + var.getName() + " and refilled your hunger by " + var.getNutrition());
-                    System.out.println("Your hunger is now at: " + p1.getHunger());
-                    return;
-                }
-                
+                    if ((p1.hunger + var.getNutrition()) >= 100 )
+                    {
+                        inventory.remove(var);   
+                      /*  System.out.println("");
+                        System.out.println("You just ate a " + var.getName() + " and refilled your hunger by " + var.getNutrition());
+                        System.out.println("You are now more than full, and wasted " + (p1.hunger + var.getNutrition() - 100) + " nutrition" );
+                        p1.hunger = 100;
+                        System.out.println("Your hunger is now at: " + p1.getHunger());
+                        System.out.println("");
+                        System.out.println("Over eating is one of the leading causes of food waste. Try to only eat as much food as you need.");
+                        */
+                        return;
+                    }
+                    else
+                    {
+                        inventory.remove(var);
+                        p1.hunger += var.getNutrition();
+                     //   System.out.println("You just ate a " + var.getName() + " and refilled your hunger by " + var.getNutrition());
+                      //  System.out.println("Your hunger is now at: " + p1.getHunger());
+                        return;
+                    }
+                   
+                }    
             }
         }
         
-        System.out.print("This item is not in your inventory.");
+     //   System.out.print("This item is not in your inventory.");
     }
    
     private void throwout(Command command) {
@@ -326,34 +456,34 @@ public class Game
             
             if (!var.getName().equals(item)) continue;
 
-            if (!currentRoom.getShortDescription().equals("in your kitchen")) 
-            {
-                System.out.println("You are not in your kitchen");
-                return;
-            }
+         //   if (!currentRoom.getShortDescription().equals("in your kitchen")) 
+          //  {
+              //  System.out.println("You are not in your kitchen");
+              //  return;
+          //  }
             
             if (!var.isFood())
             {
-                System.out.println("You just threw some " + var.getName() + " out");
+              //  System.out.println("You just threw some " + var.getName() + " out");
                 return;    
             }
             
             if (var.getSpoiledStatus())
             {
                 point.setMinusPoint(5);
-                System.out.println("You just lost 10 points, because you threw something spoiled in the trash.");
+              //  System.out.println("You just lost 10 points, because you threw something spoiled in the trash.");
                 inventory.remove(var);
                 return;
             } 
             else 
             {
                 point.setMinusPoint(10);
-                System.out.println("You just lost 10 points, because you threw something ediable in the trash.");
+              //  System.out.println("You just lost 10 points, because you threw something ediable in the trash.");
                 inventory.remove(var);
                 return;
             } 
         }
-        System.out.println("There is no such item in your inventory");
+      //  System.out.println("There is no such item in your inventory");
     }
     
     private void donate(Command command) {
@@ -367,26 +497,26 @@ public class Game
             
             if (!var.isFood())
             {
-                System.out.println("This is not food!");
+                //System.out.println("This is not food!");
                 return;
             }
 
             if (var.getSpoiledStatus()) 
             {
-                System.out.println("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
+              //  System.out.println("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
                 inventory.remove(var);
                 return;
             } 
             else 
             {
                 point.setPlusPoint(10);
-                System.out.println("Thanks! You just donated some " + var.getName() + " to the foodbank. The food will now be used to feed people in need!");
+             //   System.out.println("Thanks! You just donated some " + var.getName() + " to the foodbank. The food will now be used to feed people in need!");
                 inventory.remove(var);
                 return;
             }
         }
         
-        System.out.println("There is no such item here");
+    //    System.out.println("There is no such item here");
     }
     
     private void pickUp(Command command)
@@ -401,28 +531,29 @@ public class Game
             {
                 inventory.add(var);
                 currentRoom.items.remove(var);
-                System.out.println("You picked up some "+ var.getName());
+            //    System.out.println("You picked up some "+ var.getName());
                 return;
             }
             else
             {
-                System.out.println("Do not try to steal!");
+            //    System.out.println("Do not try to steal!");
                 return;
             }
         } 
-        System.out.println("There is no such item here");       
+    //    System.out.println("There is no such item here");       
     }
     
     private void stats() {
 
-        System.out.println("\tHello " + name);
-        //new
-        System.out.println("\tYour HP is: " + p1.getHealth());
+       // System.out.println("\tHello " + name);
+        
+      //  System.out.println("\tYour HP is: " + p1.getHealth());
+
             
         if (p1.getHunger() > 50) {
-            System.out.println("You are full! Your hunger percentage is: " + p1.getHunger());
+          //  System.out.println("You are full! Your hunger percentage is: " + p1.getHunger());
         } else {
-            System.out.println("You are hungry! Get something to eat. Your hunger percentage is: " + p1.getHunger());
+           // System.out.println("You are hungry! Get something to eat. Your hunger percentage is: " + p1.getHunger());
         }       
     }
     
@@ -437,47 +568,84 @@ public class Game
             
             inventory.remove(var);
             currentRoom.items.add(var);
-            System.out.println("You dropped some " + item);
+           // System.out.println("You dropped some " + item);
             return;
         }
         
-        System.out.println("No such item was found in your inventory. Check your inventory with 'inventory'."); 
+       // System.out.println("No such item was found in your inventory. Check your inventory with 'inventory'."); 
     }
      
     private void useItem(Command command)
     {
         String item = command.getSecondWord();
         
+        if (inventory.isEmpty())
+        {
+         //   System.out.print("Your inventory is empty.");
+            return;
+        }
+        
         for (Item var : inventory )
         {
             if (!var.getName().equals(item)) continue;
-            
+          
             for (Quests quest : questList)
             {
-                if (!quest.getObject().equals(var))
-                {
-                    System.out.println("This item cannot be used");
-                    continue;
-                }
+                if (!quest.getObject().equals(var))  continue;
+             
                 
                 if (quest.getDay() != time.getDateOfDays())
                 {
-                    System.out.println("This item cannot be used");
-                    continue;
+                   // System.out.print("You can't use that item yet.");
+                    return;
                 }
-                
+    
                 if (quest.getDestination() == currentRoom)
                 {
-                    System.out.println("You just used " + item);
                     System.out.println(quest.getSuccess());
-                   // inventory.remove(var);
+                    inventory.remove(var);
+                    quest.setFinished(true);
+                   
                     
-                }
-                
-            }
-        }
-        
-        
+                    switch (quest.getDay())
+                    {
+                        case 1:
+                            unlockApartment();
+                            point.setPlusPoint(100);
+                            break;
+                        case 2:
+                            point.setPlusPoint(200);
+                            break;
+                        case 3:
+                            point.setPlusPoint(300);
+                            break;
+                        case 4:
+                            point.setPlusPoint(400);
+                            break;
+                        case 5:
+                            point.setPlusPoint(500);
+                            break;
+                        case 6:
+                            point.setPlusPoint(600);
+                            break;
+                        case 7:
+                            point.setPlusPoint(700);
+                            break;
+                        default:
+                            
+                            break;
+                    }
+                   
+                    return;                  
+                } 
+            }   
+        }     
+    }
+    
+    private void unlockApartment()
+    {
+        Room nextRoom = currentRoom.getExit("apartment");
+        nextRoom.setUnlocked(true);
     }
     
     private void buy(Command command)
@@ -488,13 +656,13 @@ public class Game
             if (!var.getName().equals(item)) continue;
             
             if (!var.isBuyable()) {
-                System.out.print("The item is not for sale");
+               // System.out.print("The item is not for sale");
                 return;
             }
             
             if (m1.getBalance() < var.getPrice()) {
-                System.out.println("You do not have enough money for this item. The item cost: " + var.getPrice()
-                        + "kr. and you only have: "+ m1.getBalance()+"kr.");
+              //  System.out.println("You do not have enough money for this item. The item cost: " + var.getPrice()
+              //          + "kr. and you only have: "+ m1.getBalance()+"kr.");
                 return;
             }
             
@@ -502,13 +670,13 @@ public class Game
             m1.Buy(var.getPrice());
             inventory.add(var);
             var.setBuyable(false); 
-            System.out.println("You just bought: " + item + ". It cost you: "+ var.getPrice() );
+          //  System.out.println("You just bought: " + item + ". It cost you: "+ var.getPrice() );
             getBalance(command);
             
             return;
         }
    
-        System.out.println("This item could not be found");
+      //  System.out.println("This item could not be found");
     } 
     
     private void checkInventory(Command command)
@@ -516,23 +684,23 @@ public class Game
  
         if(inventory.isEmpty())
         {
-            System.out.println("Your inventory is empty");
+          //  System.out.println("Your inventory is empty");
             return;
         }
        
-        System.out.println("These items are in your inventory: ");
-        System.out.println( "[");
+      //  System.out.println("These items are in your inventory: ");
+     //   System.out.println( "[");
             
         for (Item var : inventory)
         {
             if (var.isFood() & var.getSpoiledStatus()) 
             {
-                System.out.println(var.getName() + " | Spoiled");
+              //  System.out.println(var.getName() + " | Spoiled");
                 continue;
             } 
             else if (var.isFood() & !var.getSpoiledStatus())
             {
-                System.out.println(var.getName() + " | " + var.getHoursToRot() + " Hours left to spoil.");
+                //System.out.println(var.getName() + " | " + var.getHoursToRot() + " Hours left to spoil.");
                 continue;
             }
             
@@ -545,22 +713,31 @@ public class Game
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
-            System.out.println("Go where?");
+           // System.out.println("Go where?");
             return;
         }
-
+        
+      
         String direction = command.getSecondWord();
-
+        
         Room nextRoom = currentRoom.getExit(direction);
+        
+        
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+          //  System.out.println("There is no door!");
+            return;
+        }
+        
+        if (nextRoom.isUnlocked() == false)
+        {
+           // System.out.println("The door is locked. You need to find a way to open it");
             return;
         }
         
         if(time.getDateOfHours()==0)
         {
-            System.out.print("You should use 'sleep' as you are too tired to go anywhere.");   
+           // System.out.print("You should use 'sleep' as you are too tired to go anywhere.");   
             return;
         } 
         else 
@@ -599,35 +776,36 @@ public class Game
             
             time.swichHour();
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription()+" It is day: "+time.getDateOfDays()+" the clock is "+time.getDateOfHours());
+           /* System.out.println("");
+            System.out.println(currentRoom.getLongDescription());
+            System.out.println("It is day: "+time.getDateOfDays()+" the clock is "+time.getDateOfHours());
             listRoomItems();
+            System.out.println(""); */
             p1.subHunger();  
             
             for (Quests var : questList)
             {
-                if (var.getDay() != time.getDateOfDays()) continue;
+                if (var.getDay() != time.getDateOfDays() || var.getFinished()) continue;
                 
-                System.out.println(var.getDescription());
+                ph.setNotifications(var.getDescription());
                 
+                   
             }
             
             
             if(p1.getHunger() <= 30)
             {
-                System.out.println("You are now starting to take damage because you are very hungry");
+              //  System.out.println("You are now starting to take damage because you are very hungry");
                 p1.subHealth();
             }
         }
         
         if(0 >= p1.health) 
         {          
-            System.out.println("You died");
+       /*     System.out.println("You died");
             System.out.println("HP: " + p1.getHealth());
             System.out.println("Hunger: " + p1.getHunger());
-            System.out.println("Score: " + point.getPoint());
-            System.out.println("Balance " + m1.getBalance());
-            
-            createdHighScorre();
+            System.out.println("Score: " + point.getPoint()); */
             System.exit(0);            
         }    
     }
@@ -636,42 +814,42 @@ public class Game
 
         if (currentRoom.items.isEmpty())
         {
-            System.out.println("This room has no items");
+           // System.out.println("This room has no items");
             return;
         }
         
-        System.out.println("[");
+      //  System.out.println("[");
 
         for (Item var : currentRoom.items) 
         {
             if (var.isBuyable()) 
             {
-                System.out.println(var.getName() + " | " + var.getPrice() + "kr.");
+                //System.out.println(var.getName() + " | " + var.getPrice() + "kr.");
                 continue;
             }
 
             if (var.isFood() & var.getSpoiledStatus()) 
             {
-                System.out.println(var.getName() + " | Spoiled");
+                //System.out.println(var.getName() + " | Spoiled");
                 continue;
             } 
             else if (var.isFood() & !var.getSpoiledStatus())
             {
-                System.out.println(var.getName() + " | " + var.getHoursToRot() + " Hours left to spoil.");
+               // System.out.println(var.getName() + " | " + var.getHoursToRot() + " Hours left to spoil.");
                 continue;
             }
             
-            System.out.println(var.getName());
+         //   System.out.println(var.getName());
         }
 
-        System.out.println("]");
+      //  System.out.println("]");
     }
 
     private boolean quit(Command command) 
     {
         if(command.hasSecondWord()) 
         {
-            System.out.println("Quit what?");
+           // System.out.println("Quit what?");
             return false;
         }
         else 
@@ -681,55 +859,31 @@ public class Game
     }
 
     private void sleep() {
-        if ("in the bedroom".equals(currentRoom.getShortDescription()))
+      /*  if ("in the bedroom".equals(currentRoom.getShortDescription()))
         {       
             time.swichDayWithBed();
             System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
-            if(time.checkForStausSystemExit()==true)
-            {
-            createdHighScorre();
-            }
             time.checkForDaysQuitGame();
-
+            events();
         } 
         else  
         {
             time.swichDayOutsideOfBedroom();
             System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 16 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
             System.out.println("It is better to sleep inside your bedroom");
-            if(time.checkForStausSystemExit()==true)
-            {
-            createdHighScorre();
-            }
             time.checkForDaysQuitGame();
-        }
-                 
-         
-        
+            events(); 
+        }*/
+   
     }
-    
-    monetarySystem m1 = new monetarySystem();
-    
+    private void phone() {
+        ph.phoneMode = true;
+        ph.onPhone();
+    }
     public void getBalance(Command command) {
-        System.out.println("You have " + m1.getBalance() + " kr. left in your account");
+        
+      //  System.out.println("You have " + m1.getBalance() + " kr. left in your account");
     }
-    
-File Highscorre = new File("c:Highstore.txt");
-    
-    PrintWriter pw;
- 
-public void createdHighScorre(){
-  try {
-pw = new PrintWriter(Highscorre);
-
-pw.println("Your Highscore is "+point.getPoint());
-
-pw.close(); }
- catch (FileNotFoundException ex){
-System.out.print("There was an error writing to the file.");
 }
-    
 
-}
-}
 

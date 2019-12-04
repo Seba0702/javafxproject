@@ -3,7 +3,7 @@ package com.mycompany.foodwaste_project.domain;
 public class Point {
 
     private double index = 0;
-
+    
     public Point() {
 
     }

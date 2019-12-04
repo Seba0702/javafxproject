@@ -69,12 +69,9 @@ public class Time {
 
         }
     }
-    public boolean checkForStausSystemExit()
-    {
-        if(this.days >=8)
-        {
-            return true;
-        }
-        else return false;
-    }
+
 }
+
+
+ 
+

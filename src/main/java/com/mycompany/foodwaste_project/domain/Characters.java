@@ -1,5 +1,6 @@
 package com.mycompany.foodwaste_project.domain;
 
+
 public class Characters {
     public int health;
     public int hunger;
@@ -9,7 +10,7 @@ public class Characters {
     public Characters() {
         health = 100;
         hunger = 40;
-        damage = 60;
+        damage = 5;
         minHealth = 0;
     }
     
