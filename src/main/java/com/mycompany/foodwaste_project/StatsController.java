@@ -37,6 +37,10 @@ public class StatsController implements Initializable {
     private Label labelName;
     @FXML
     private Label labelRoom;
+    @FXML
+    private Label labelDay;
+    @FXML
+    private Label labelTime;
   
     
     
@@ -48,6 +52,8 @@ public class StatsController implements Initializable {
         labelMoney.setText(String.valueOf(g1.getMoney()));
         labelName.setText(String.valueOf(g1.getName()));
         labelRoom.setText(String.valueOf("You are " + g1.getRoom().getShortDescription()));
+        labelDay.setText(String.valueOf(g1.getDay()));
+        labelTime.setText(String.valueOf(g1.getTime()));
         
         
     }    

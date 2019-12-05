@@ -70,13 +70,23 @@ public class Game
         return currentRoom;
     }
     
+    public int getDay()
+    {
+        return time.getDateOfDays();
+    }
+    
+    public int getTime()
+    {
+        return time.getDateOfHours();
+    }
+    
     
     public void goToRoom(String roomName)
     {
         currentRoom = currentRoom.getExit(roomName);
         
-         
-    
+        time.swichHour();
+        
         if(p1.getHunger() <= 30)
         {
                 p1.subHealth();

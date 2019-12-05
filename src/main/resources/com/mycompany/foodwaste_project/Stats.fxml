@@ -17,6 +17,10 @@
                </font>
             </Label>
             <Label fx:id="labelRoom" layoutX="14.0" layoutY="14.0" text="Label" />
+            <Label layoutX="415.0" layoutY="14.0" text="Day:" />
+            <Label layoutX="413.0" layoutY="39.0" text="Time: " />
+            <Label fx:id="labelDay" layoutX="445.0" layoutY="14.0" text="Label" />
+            <Label fx:id="labelTime" layoutX="445.0" layoutY="39.0" text="Label" />
          </children>
       </AnchorPane>
       <Label layoutX="20.0" layoutY="114.0" prefHeight="18.0" prefWidth="22.0" styleClass="healthIcon" stylesheets="@GUI_Images/HealthIcon.css" />
