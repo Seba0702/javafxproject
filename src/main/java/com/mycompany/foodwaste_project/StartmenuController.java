@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class StartmenuController implements Initializable {
+    Game g1 = Game.getInstance();
     
     @FXML
     public TextField name;
@@ -25,12 +26,13 @@ public class StartmenuController implements Initializable {
     
     @FXML
     private void setName(ActionEvent event) {
-         String nameString = name.getText();
+         
          
     }
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
+        g1.setName(name.getText());
         App.setRoot("Intro");
         
         

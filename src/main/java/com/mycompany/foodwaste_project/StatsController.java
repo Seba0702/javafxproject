@@ -33,6 +33,10 @@ public class StatsController implements Initializable {
     private Button closeButton;
     @FXML
     private Label labelMoney;
+    @FXML
+    private Label labelName;
+    @FXML
+    private Label labelRoom;
   
     
     
@@ -42,6 +46,10 @@ public class StatsController implements Initializable {
         labelHealth.setText(String.valueOf(g1.getHealth()));
         labelHunger.setText(String.valueOf(g1.getHunger()));
         labelMoney.setText(String.valueOf(g1.getMoney()));
+        labelName.setText(String.valueOf(g1.getName()));
+        labelRoom.setText(String.valueOf("You are " + g1.getRoom().getShortDescription()));
+        
+        
     }    
     
     @FXML

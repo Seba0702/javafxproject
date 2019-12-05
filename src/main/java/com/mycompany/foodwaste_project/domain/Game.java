@@ -10,6 +10,8 @@ public class Game
     private String name;
     private Parser parser;
     private Room currentRoom;
+    private String pName;
+    private Room nextRoom;
  
     
     Characters p1 = new Characters();
@@ -53,45 +55,60 @@ public class Game
         return m1.balance;
     }
     
+    public String getName()
+    {
+        return pName;
+    }
+    
+    public void setName(String value)
+    {
+        pName = value;
+    }
+    
+    public Room getRoom()
+    {
+        return currentRoom;
+    }
+    
     public void goOutside()
     {
        
-      //  goRoom(command);
+       currentRoom = currentRoom.getExit("outside");
     }
     
     public void goApartment()
     {
-    
+        currentRoom = currentRoom.getExit("apartment");
     }
     
     public void goKitchen()
     {
-    
+        currentRoom = currentRoom.getExit("kitchen");
     }
     
     public void goLivingroom()
     {
-    
+        currentRoom = currentRoom.getExit("livingroom");
     }
     
     public void goBedroom()
     {
-        
+        currentRoom = currentRoom.getExit("bedroom");
     }
     
     public void goSupermarked()
     {
-    
+        currentRoom = currentRoom.getExit("supermarked");
     }
     
     public void goMcDonalds()
     {
-    
+        currentRoom = currentRoom.getExit("McDonalds");
     }
     
     public void goLoesMarket()
     {
-    
+        currentRoom = currentRoom.getExit("loesMarket");
     }
     
     public void createRooms()
@@ -720,9 +737,9 @@ public class Game
       
         String direction = command.getSecondWord();
         
-        Room nextRoom = currentRoom.getExit(direction);
+        nextRoom = currentRoom.getExit(direction);
         
-        
+       
 
         if (nextRoom == null) {
           //  System.out.println("There is no door!");
