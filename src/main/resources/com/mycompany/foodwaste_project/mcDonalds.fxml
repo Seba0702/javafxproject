@@ -29,5 +29,6 @@
             <Image url="@GUI_Images/Character.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="statsButton" mnemonicParsing="false" onAction="#viewStats" text="Stats" />
    </children>
 </GridPane>

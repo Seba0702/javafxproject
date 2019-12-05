@@ -30,25 +30,25 @@ public class ApartmentController implements Initializable {
     @FXML
     private void goOutside(ActionEvent event) throws IOException {
         App.setRoot("Outside");
-        g1.goOutside();
+        g1.goToRoom("outside");
     }
 
     @FXML
     private void goKitchen(ActionEvent event) throws IOException {
         App.setRoot("Kitchen");
-        g1.goKitchen();
+        g1.goToRoom("kitchen");
     }
 
     @FXML
     private void goLivingroom(ActionEvent event) throws IOException {
         App.setRoot("Livingroom");
-        g1.goLivingroom();
+        g1.goToRoom("livingroom");
     }
 
     @FXML
     private void goBedroom(ActionEvent event) throws IOException {
         App.setRoot("Bedroom");
-        g1.goBedroom();
+        g1.goToRoom("bedroom");
     }
 
 }

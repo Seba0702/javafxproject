@@ -52,25 +52,27 @@ public class OutsideController implements Initializable {
     @FXML
     private void goApartment(ActionEvent event) throws IOException {
         App.setRoot("Apartment");
-        g1.goApartment();
+        
+        g1.goToRoom("apartment");
     }
 
     @FXML
     private void goMcDonalds(ActionEvent event) throws IOException {
         App.setRoot("mcDonalds");
-        g1.goMcDonalds();
+        g1.goToRoom("mcdonalds");
     }
 
     @FXML
     private void goFakta(ActionEvent event) throws IOException {
         App.setRoot("Fakta");
-        g1.goSupermarked();
+        g1.goToRoom("fakta");
     }
 
     @FXML
     private void goNaturmarket(ActionEvent event) throws IOException {
         App.setRoot("Naturmarket");
-        g1.goLoesMarket();
+       
+        g1.goToRoom("naturmarket");
     }
 
     @FXML

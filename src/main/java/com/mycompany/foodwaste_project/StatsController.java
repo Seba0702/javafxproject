@@ -54,6 +54,7 @@ public class StatsController implements Initializable {
     
     @FXML
     private void closeButtonAction(ActionEvent event) {
+       
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }

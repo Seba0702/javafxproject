@@ -70,45 +70,10 @@ public class Game
         return currentRoom;
     }
     
-    public void goOutside()
-    {
-       
-       currentRoom = currentRoom.getExit("outside");
-    }
     
-    public void goApartment()
+    public void goToRoom(String roomName)
     {
-        currentRoom = currentRoom.getExit("apartment");
-    }
-    
-    public void goKitchen()
-    {
-        currentRoom = currentRoom.getExit("kitchen");
-    }
-    
-    public void goLivingroom()
-    {
-        currentRoom = currentRoom.getExit("livingroom");
-    }
-    
-    public void goBedroom()
-    {
-        currentRoom = currentRoom.getExit("bedroom");
-    }
-    
-    public void goSupermarked()
-    {
-        currentRoom = currentRoom.getExit("supermarked");
-    }
-    
-    public void goMcDonalds()
-    {
-        currentRoom = currentRoom.getExit("McDonalds");
-    }
-    
-    public void goLoesMarket()
-    {
-        currentRoom = currentRoom.getExit("loesMarket");
+        currentRoom = currentRoom.getExit(roomName);
     }
     
     public void createRooms()

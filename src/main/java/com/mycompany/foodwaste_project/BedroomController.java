@@ -26,13 +26,13 @@ public class BedroomController implements Initializable {
     @FXML
     private void goLivingroom(ActionEvent event) throws IOException {
         App.setRoot("Livingroom");
-        g1.goLivingroom();
+        g1.goToRoom("livingroom");
     }
 
     @FXML
     private void goEntrance(ActionEvent event) throws IOException {
         App.setRoot("Apartment");
-        g1.goApartment();
+        g1.goToRoom("apartment");
     }
 
 }

@@ -24,7 +24,8 @@ public class NaturmarketController implements Initializable {
     @FXML
     private void goOutside(ActionEvent event) throws IOException {
         App.setRoot("Outside");
-        g1.goOutside();
+       
+        g1.goToRoom("outside");
     }
 
 }
