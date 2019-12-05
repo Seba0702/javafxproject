@@ -74,6 +74,27 @@ public class Game
     public void goToRoom(String roomName)
     {
         currentRoom = currentRoom.getExit(roomName);
+        
+         
+    
+        if(p1.getHunger() <= 30)
+        {
+                p1.subHealth();
+        }
+        
+        if(p1.getHunger() <= 0)
+        {
+            p1.hunger = 0;
+        }
+        else
+        {
+            p1.subHunger(); 
+        }
+        
+        if(0 >= p1.health) 
+        {           
+            System.exit(0);            
+        }  
     }
     
     public void createRooms()
