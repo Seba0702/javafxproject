@@ -1,5 +1,6 @@
 package com.mycompany.foodwaste_project;
 
+import com.mycompany.foodwaste_project.domain.Game;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -14,9 +15,9 @@ import javafx.scene.control.Label;
  */
 public class OrderTableController implements Initializable {
 
-
+    Game g1 = Game.getInstance();
     @FXML
-    private ChoiceBox<?> cbItems;
+    private ChoiceBox<String> cbItems = new ChoiceBox<>();
     @FXML
     private Label labelBalance;
     @FXML
@@ -28,7 +29,14 @@ public class OrderTableController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        labelHealth.setText(String.valueOf(g1.getHealth()));
+        labelHunger.setText(String.valueOf(g1.getHunger()));
+        labelBalance.setText(String.valueOf(g1.getMoney()));
+        
+        //getItems returns the ObservableList object which you can add items to
+        cbItems.getItems().addAll();
+        
+
     }    
     
 }

@@ -36,7 +36,7 @@ public class Smartphone {
             System.out.println("\t1. Enter SMS"); 
             System.out.println("\t2. Exit"); 
             String maininput = phoneinput.nextLine();
-            
+             
             if(maininput.equals(SMS)) {
                 frontScreen = false;
                 smsMode = true;

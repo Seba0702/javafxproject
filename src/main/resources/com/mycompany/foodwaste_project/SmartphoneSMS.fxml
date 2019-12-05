@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="smsAnchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="277.0" styleClass="smartphonebg" stylesheets="@GUI_Images/Smartphone2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.foodwaste_project.SmartphoneSMSController">
+   <children>
+      <Button fx:id="backButton" layoutX="113.0" layoutY="601.0" mnemonicParsing="false" onAction="#onActionBack" text="Back" />
+      <ImageView fitHeight="14.0" fitWidth="277.0" layoutX="6.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GUI_Images/phonebar.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="42.0" layoutY="66.0" text="Notifications:" />
+      <Label fx:id="labelQuest" layoutX="119.0" layoutY="66.0" text="Label" />
+      <Label layoutX="15.0" layoutY="135.0" prefHeight="18.0" prefWidth="248.0" text="Label" />
+      <Label layoutX="14.0" layoutY="154.0" text="Label" />
+      <Label layoutX="14.0" layoutY="180.0" text="Label" />
+      <Label layoutX="14.0" layoutY="209.0" text="Label" />
+      <Label layoutX="14.0" layoutY="238.0" text="Label" />
+      <Label layoutX="14.0" layoutY="269.0" text="Label" />
+      <Label layoutX="14.0" layoutY="302.0" text="Label" />
+      <Label layoutX="14.0" layoutY="331.0" text="Label" />
+   </children>
+</AnchorPane>

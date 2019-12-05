@@ -82,7 +82,8 @@ public class OutsideController implements Initializable {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         //stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(new Scene(parent, 618, 661));
+        stage.setResizable(false);
+        stage.setScene(new Scene(parent, 277, 661));
         stage.show();
     }
 
