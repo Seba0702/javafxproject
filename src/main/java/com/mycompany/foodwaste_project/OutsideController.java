@@ -41,6 +41,8 @@ public class OutsideController implements Initializable {
     private Button smartphoneButton;
     @FXML
     private Button statsButton;
+    @FXML
+    private Button inventoryButton;
     /**
      * Initializes the controller class.
      */
@@ -52,7 +54,6 @@ public class OutsideController implements Initializable {
     @FXML
     private void goApartment(ActionEvent event) throws IOException {
         App.setRoot("Apartment");
-        
         g1.goToRoom("apartment");
     }
 
@@ -71,7 +72,6 @@ public class OutsideController implements Initializable {
     @FXML
     private void goNaturmarket(ActionEvent event) throws IOException {
         App.setRoot("Naturmarket");
-       
         g1.goToRoom("naturmarket");
     }
 
@@ -90,6 +90,17 @@ public class OutsideController implements Initializable {
     @FXML
     private void viewStats(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Stats.fxml"));
+        Parent parent = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(parent, 600, 241));
+        stage.show();
+    }
+
+    @FXML
+    private void openInventory(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Inventory.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
