@@ -1,6 +1,6 @@
+
 package com.mycompany.foodwaste_project;
 
-import com.mycompany.foodwaste_project.*;
 import com.mycompany.foodwaste_project.domain.Game;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,19 +14,29 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
+ * @author sebas
  */
-public class InventoryController implements Initializable {
-
+public class SleepController implements Initializable {
+    
     Game g1 = Game.getInstance();
+    
     @FXML
     private Button closeButton;
     @FXML
     private Label labelDay;
     @FXML
     private Label labelMessage;
-    
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        g1.sleep();
+        
+        labelDay.setText(String.valueOf(g1.getDay()));
+        labelMessage.setText(String.valueOf(g1.getEventMessage()));
         
     }    
 
@@ -35,5 +45,7 @@ public class InventoryController implements Initializable {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
+    
+    
     
 }

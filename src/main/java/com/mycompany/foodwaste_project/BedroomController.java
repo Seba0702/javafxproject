@@ -29,6 +29,8 @@ public class BedroomController implements Initializable {
     private Button smartphoneButton;
     @FXML
     private Button inventoryButton;
+    @FXML
+    private Button buttonSleep;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -47,23 +49,22 @@ public class BedroomController implements Initializable {
         g1.goToRoom("apartment");
     }
 
-    @FXML
     private void goMcDonalds(ActionEvent event) throws IOException {
         App.setRoot("mcDonalds");
         g1.goToRoom("mcdonalds");
     }
 
-    @FXML
     private void goFakta(ActionEvent event) throws IOException {
         App.setRoot("Fakta");
         g1.goToRoom("fakta");
     }
 
-    @FXML
     private void goNaturmarket(ActionEvent event) throws IOException {
         App.setRoot("Naturmarket");
         g1.goToRoom("naturmarket");
     }
+    
+   
 
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
@@ -91,6 +92,20 @@ public class BedroomController implements Initializable {
     @FXML
     private void openInventory(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Inventory.fxml"));
+        Parent parent = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(parent, 600, 241));
+        stage.show();
+    }
+
+    @FXML
+    private void sleep(ActionEvent event) throws IOException {
+        
+        
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);

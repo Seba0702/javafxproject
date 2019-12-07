@@ -12,6 +12,7 @@ public class Game
     private Room currentRoom;
     private String pName;
     private Room nextRoom;
+    private String notificationMessage;
  
     
     Characters p1 = new Characters();
@@ -78,6 +79,11 @@ public class Game
     public int getTime()
     {
         return time.getDateOfHours();
+    }
+    
+     public String getEventMessage()
+    {
+       return notificationMessage;
     }
     
     
@@ -222,8 +228,8 @@ public class Game
     
         // Create Events
         
-        Events e1 = new Events(3, "Instead of going to sleep, you went out with your friends. Doing the night you bought McDonalds and your food at home got spoiled.", 200);
-        Events e2 = new Events(5, "test", 150);
+        Events e1 = new Events(3, "Instead of going to sleep, you went out with your friends. Doing the night you bought McDonalds and your food at home got spoiled.", -200);
+        Events e2 = new Events(5, "test", -150);
         
         eventList.add(e1);
         eventList.add(e2);
@@ -233,40 +239,37 @@ public class Game
     
     public void events()
     {
+        String standardMessage = ("You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
+        notificationMessage = standardMessage;
+        
         for(Events var : eventList)
         {
-            if (var.getIsFinished()) continue;
-            
-            if (time.getDateOfDays() == var.getDay())
+   
+            if (var.getDay() == time.getDateOfDays())
             {
-                 
-            switch (var.getDay())
+                if ( var.getDay() == 3)
+                {
+                    var.printDescription();
+                    m1.setBalance(var.getPenalty()); 
+
+                    inventory.forEach((items) -> 
                     {
-                        case 3:
- 
-                            var.printDescription();
-                            m1.setBalance(var.getPenalty()); 
-                            inventory.forEach((items) -> 
-                            {
-                                items.setSpoilStatus(true);
-                            } );
-                            var.setEventTrue();
-                            break;
-                        case 5:
-                            var.printDescription();
-                            m1.setBalance(var.getPenalty());
-                            
-                            break;
-                        
-                        default:
-                            
-                            break;
-                    }
+                        items.setSpoilStatus(true);
+                    } );
+                    notificationMessage = var.getDescription();
+                    
+                }
+                else if (var.getDay() == 5)
+                {
+                    var.printDescription();
+                    m1.setBalance(var.getPenalty());
+                    notificationMessage = var.getDescription();
+                    
+                }
             }
-        }
+        }    
     }
     
-   
     public void play() 
     {            
         printWelcome();
@@ -871,24 +874,24 @@ public class Game
         }
     }
 
-    private void sleep() {
-      /*  if ("in the bedroom".equals(currentRoom.getShortDescription()))
-        {       
-            time.swichDayWithBed();
-            System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
-            time.checkForDaysQuitGame();
-            events();
-        } 
-        else  
-        {
-            time.swichDayOutsideOfBedroom();
-            System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 16 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
-            System.out.println("It is better to sleep inside your bedroom");
-            time.checkForDaysQuitGame();
-            events(); 
-        }*/
-   
+    public void sleep() 
+    {     
+        time.swichDayWithBed();
+        //System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
+        time.checkForDaysQuitGame();
+        events(); 
     }
+    
+    public void sleepOutOfBedroom()
+    {
+        time.swichDayOutsideOfBedroom();
+        System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 16 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
+        System.out.println("It is better to sleep inside your bedroom");
+        time.checkForDaysQuitGame();
+        events();
+    }
+    
+    
     private void phone() {
         ph.phoneMode = true;
         ph.onPhone();

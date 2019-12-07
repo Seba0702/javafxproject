@@ -31,6 +31,10 @@ public class Events {
         System.out.println(description);
     }
     
+    public String getDescription()
+    {
+        return description;
+    }
     public double getPenalty()
     {
         return minusBalance;
