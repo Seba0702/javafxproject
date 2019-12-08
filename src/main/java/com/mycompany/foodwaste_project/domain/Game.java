@@ -3,9 +3,12 @@ package com.mycompany.foodwaste_project.domain;
 //import java.util.Scanner;
 import java.util.ArrayList;
 
+
 // TEST
 public class Game 
 {
+
+    Item item = new Item();
     Time time = new Time();
     private String name;
     private Parser parser;
@@ -19,10 +22,12 @@ public class Game
     Point point = new Point();
     Smartphone ph = new Smartphone();
     monetarySystem m1 = new monetarySystem();
+
     
     ArrayList<Item> inventory = new ArrayList();
     ArrayList<Quests> questList = new ArrayList();
     ArrayList<Events> eventList = new ArrayList();
+    //ArrayList<Item> supermarkedItems = new ArrayList();
 
     public Game() 
     {
@@ -49,6 +54,9 @@ public class Game
     public int getHunger()
     {
         return p1.hunger;
+    }
+    public int getPrice() {
+        return item.getPrice();
     }
     
     public double getMoney()
@@ -85,7 +93,35 @@ public class Game
     {
        return notificationMessage;
     }
+     
+
+     public ArrayList<Item> supermarkedItems = new ArrayList();     
+     public ArrayList supermarkedItems() {
+
+
+        Item meat, milk, cake, rice, ryebread;
+                
+        milk = new Item("milk", "This is milk!", 14, true, true, 20);
+        meat = new Item("meat", "This is meat!", 35, true, true, 30);
+        cake = new Item("cake", "This is a whole cake!", 60, true, true, 50);
+        rice = new Item("rice", "This is 500g of white rice!", 25, true, true, 50);
+        ryebread = new Item("ryebread", "This is a loaf of ryebread", 25, true, true, 25);
+        
+        supermarkedItems.add(meat);
+        supermarkedItems.add(milk);
+        supermarkedItems.add(cake);
+        supermarkedItems.add(rice);
+        supermarkedItems.add(ryebread);
+        
+        return supermarkedItems;
+        
+     }
     
+     
+     public String getItemNames() {
+         return item.toString();
+     }
+     
     
     public void goToRoom(String roomName)
     {
@@ -172,11 +208,11 @@ public class Game
         
         Item meat, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter;
         
-        milk = new Item("milk", "This is milk!", 14, true, true, 20);
-        meat = new Item("meat", "This is meat!", 35, true, true, 30);
-        cake = new Item("cake", "This is a whole cake!", 60, true, true, 50);
-        rice = new Item("rice", "This is 500g of white rice!", 25, true, true, 50);
-        ryebread = new Item("ryebread", "This is a loaf of ryebread", 25, true, true, 25);
+        //milk = new Item("milk", "This is milk!", 14, true, true, 20);
+        //meat = new Item("meat", "This is meat!", 35, true, true, 30);
+        //cake = new Item("cake", "This is a whole cake!", 60, true, true, 50);
+        //rice = new Item("rice", "This is 500g of white rice!", 25, true, true, 50);
+        //ryebread = new Item("ryebread", "This is a loaf of ryebread", 25, true, true, 25);
         cheeseburger = new Item("cheeseburger", "This is a cheeseburger!", 10, true, true, 30);
         rice100g = new Item("100g-Rice", "This is 100g of rice", 5, true, true, 10 );
         burger = new Item("burger", "This is a burger!", 10, true, true, 28);
@@ -189,11 +225,11 @@ public class Game
         
         apartmentItems.add(letter);
        
-        supermarkedItems.add(meat);
-        supermarkedItems.add(milk);
-        supermarkedItems.add(cake);
-        supermarkedItems.add(rice);
-        supermarkedItems.add(ryebread);
+        //supermarkedItems.add(meat);
+        //supermarkedItems.add(milk);
+        //supermarkedItems.add(cake);
+        //supermarkedItems.add(rice);
+        //supermarkedItems.add(ryebread);
 
         
         mcDonaldsItems.add(cheeseburger);

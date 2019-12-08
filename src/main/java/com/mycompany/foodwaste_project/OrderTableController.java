@@ -1,11 +1,15 @@
 package com.mycompany.foodwaste_project;
 
 import com.mycompany.foodwaste_project.domain.Game;
+import com.mycompany.foodwaste_project.domain.Item;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import java.util.ArrayList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 /**
@@ -16,27 +20,42 @@ import javafx.scene.control.Label;
 public class OrderTableController implements Initializable {
 
     Game g1 = Game.getInstance();
+
     @FXML
-    private ChoiceBox<String> cbItems = new ChoiceBox<>();
+    private ChoiceBox<Item> cbItems = new ChoiceBox<>(FXCollections.observableArrayList(g1.supermarkedItems()));
+    
     @FXML
     private Label labelBalance;
     @FXML
     private Label labelHealth;
     @FXML
     private Label labelHunger;
+    @FXML
+    private Button buyButton;
+    @FXML
+    private Label labelPrice;
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         labelHealth.setText(String.valueOf(g1.getHealth()));
         labelHunger.setText(String.valueOf(g1.getHunger()));
         labelBalance.setText(String.valueOf(g1.getMoney()));
-        
-        //getItems returns the ObservableList object which you can add items to
-        cbItems.getItems().addAll();
-        
 
+        g1.getRoom().getArray();
+
+        cbItems.getItems().addAll( g1.supermarkedItems() );
+
+        //cbItems.getSelectionModel().selectedItemProperty().addListener( e -> System.out.println(g1.getPrice()));
+        cbItems.getSelectionModel().selectedItemProperty().addListener( e -> labelPrice.setText(String.valueOf(g1.getPrice())));
     }    
+
+    @FXML
+    private void onActionBuyButton(ActionEvent event) {
+        
+    }
     
 }
