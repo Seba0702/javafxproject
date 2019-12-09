@@ -52,19 +52,16 @@ public class FaktaController implements Initializable {
         stage.show();
     }
 
-    @FXML
     private void goMcDonalds(ActionEvent event) throws IOException {
         App.setRoot("mcDonalds");
         g1.goToRoom("mcdonalds");
     }
 
-    @FXML
     private void goFakta(ActionEvent event) throws IOException {
         App.setRoot("Fakta");
         g1.goToRoom("fakta");
     }
 
-    @FXML
     private void goNaturmarket(ActionEvent event) throws IOException {
         App.setRoot("Naturmarket");
         g1.goToRoom("naturmarket");

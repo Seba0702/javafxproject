@@ -30,10 +30,10 @@
             <Image url="@GUI_Images/Character.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buyButton" mnemonicParsing="false" onAction="#buyItems" prefHeight="50.0" prefWidth="85.0" text="Buy items" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
+      <Button fx:id="buyButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyItems" prefHeight="19.0" prefWidth="90.0" text="Buy items" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="250.0" />
+         </GridPane.margin></Button>
       <Button fx:id="statsButton" mnemonicParsing="false" onAction="#viewStats" text="Stats" GridPane.valignment="TOP" />
       <Button fx:id="smartphoneButton" mnemonicParsing="false" onAction="#openSmartphone" text="Phone" GridPane.valignment="TOP">
          <GridPane.margin>
