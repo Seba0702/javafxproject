@@ -2,6 +2,7 @@ package com.mycompany.foodwaste_project;
 
 import com.mycompany.foodwaste_project.domain.Game;
 import com.mycompany.foodwaste_project.domain.Item;
+import com.mycompany.foodwaste_project.domain.monetarySystem;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -34,6 +35,8 @@ public class OrderTableController implements Initializable {
     private Button buyButton;
     @FXML
     private Label labelPrice;
+    @FXML
+    private Label labelnoMoney;
     /**
      * Initializes the controller class.
      */
@@ -61,6 +64,26 @@ public class OrderTableController implements Initializable {
     private void onActionBuyButton(ActionEvent event) {
         
         labelPrice.setText(String.valueOf(cbItems.getValue().getPrice()));
+        
+        if(g1.getMoney() < cbItems.getValue().getPrice()) {
+            labelnoMoney.setText("You do not have enough money.");
+            return;
+        }
+        if (!cbItems.getValue().isBuyable()) {
+               labelnoMoney.setText("The item is not for sale");
+            return;
+        }
+        
+        if(g1.getMoney() > cbItems.getValue().getPrice()) {
+            labelnoMoney.setText("Bought.");
+            cbItems.getValue().setBuyable(false);
+            g1.Buy(cbItems.getValue().getPrice());
+            
+            
+            
+            
+            return;
+        }
         
     }
     

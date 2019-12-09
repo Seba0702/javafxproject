@@ -83,7 +83,7 @@ public class Item {
     {
         return price;
     }
-
+    
     public double getHoursToRot() 
     {
         return hoursToRot;

@@ -28,7 +28,6 @@ public class Game
     ArrayList<Item> inventory = new ArrayList();
     ArrayList<Quests> questList = new ArrayList();
     ArrayList<Events> eventList = new ArrayList();
-    //ArrayList<Item> supermarkedItems = new ArrayList();
 
     public Game() 
     {
@@ -128,7 +127,9 @@ public class Game
      public String getItemNames() {
          return item.toString();
      }
-     
+    public void Buy (double price) { 
+        m1.balance = m1.balance-price;
+    }
     
     public void goToRoom(String roomName)
     {
