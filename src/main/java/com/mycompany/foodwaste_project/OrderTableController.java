@@ -22,7 +22,7 @@ public class OrderTableController implements Initializable {
     Game g1 = Game.getInstance();
 
     @FXML
-    private ChoiceBox<Item> cbItems = new ChoiceBox<>(FXCollections.observableArrayList(g1.supermarkedItems()));
+    private ChoiceBox<Item> cbItems = new ChoiceBox<>();
     
     @FXML
     private Label labelBalance;
@@ -45,16 +45,22 @@ public class OrderTableController implements Initializable {
         labelHunger.setText(String.valueOf(g1.getHunger()));
         labelBalance.setText(String.valueOf(g1.getMoney()));
 
-        g1.getRoom().getArray();
-
-        cbItems.getItems().addAll( g1.supermarkedItems() );
+        System.out.println(String.valueOf(g1.getRoom().getArray()));
+        
+        cbItems.getItems().addAll(g1.getRoom().getArray());
+        
+       // System.out.println(cbItems.getItems().addAll( g1.supermarkedItems() ));
 
         //cbItems.getSelectionModel().selectedItemProperty().addListener( e -> System.out.println(g1.getPrice()));
-        cbItems.getSelectionModel().selectedItemProperty().addListener( e -> labelPrice.setText(String.valueOf(g1.getPrice())));
+        cbItems.getSelectionModel().select(0); //.addListener( e -> labelPrice.setText(String.valueOf(g1.getRoom().getArray().get(1).getPrice())));
+        
+        
     }    
 
     @FXML
     private void onActionBuyButton(ActionEvent event) {
+        
+        labelPrice.setText(String.valueOf(cbItems.getValue().getPrice()));
         
     }
     

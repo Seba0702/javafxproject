@@ -55,7 +55,7 @@ public class Game
     {
         return p1.hunger;
     }
-    public int getPrice() {
+    public int getPrice(Item value) {
         return item.getPrice();
     }
     
@@ -95,7 +95,7 @@ public class Game
     }
      
 
-     public ArrayList<Item> supermarkedItems = new ArrayList();     
+    /* public ArrayList<Item> supermarkedItems = new ArrayList();     
      public ArrayList supermarkedItems() {
 
 
@@ -115,7 +115,7 @@ public class Game
         
         return supermarkedItems;
         
-     }
+     } */
     
      
      public String getItemNames() {
@@ -208,11 +208,11 @@ public class Game
         
         Item meat, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter;
         
-        //milk = new Item("milk", "This is milk!", 14, true, true, 20);
-        //meat = new Item("meat", "This is meat!", 35, true, true, 30);
-        //cake = new Item("cake", "This is a whole cake!", 60, true, true, 50);
-        //rice = new Item("rice", "This is 500g of white rice!", 25, true, true, 50);
-        //ryebread = new Item("ryebread", "This is a loaf of ryebread", 25, true, true, 25);
+        milk = new Item("milk", "This is milk!", 14, true, true, 20);
+        meat = new Item("meat", "This is meat!", 35, true, true, 30);
+        cake = new Item("cake", "This is a whole cake!", 60, true, true, 50);
+        rice = new Item("rice", "This is 500g of white rice!", 25, true, true, 50);
+        ryebread = new Item("ryebread", "This is a loaf of ryebread", 25, true, true, 25);
         cheeseburger = new Item("cheeseburger", "This is a cheeseburger!", 10, true, true, 30);
         rice100g = new Item("100g-Rice", "This is 100g of rice", 5, true, true, 10 );
         burger = new Item("burger", "This is a burger!", 10, true, true, 28);
@@ -225,11 +225,11 @@ public class Game
         
         apartmentItems.add(letter);
        
-        //supermarkedItems.add(meat);
-        //supermarkedItems.add(milk);
-        //supermarkedItems.add(cake);
-        //supermarkedItems.add(rice);
-        //supermarkedItems.add(ryebread);
+        supermarkedItems.add(meat);
+        supermarkedItems.add(milk);
+        supermarkedItems.add(cake);
+        supermarkedItems.add(rice);
+        supermarkedItems.add(ryebread);
 
         
         mcDonaldsItems.add(cheeseburger);
@@ -703,6 +703,8 @@ public class Game
     private void buy(Command command)
     {
         String item = command.getSecondWord();
+        
+        
         
         for (Item var : currentRoom.items) {
             if (!var.getName().equals(item)) continue;

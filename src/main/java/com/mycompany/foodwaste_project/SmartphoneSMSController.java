@@ -5,6 +5,7 @@
  */
 package com.mycompany.foodwaste_project;
 
+import com.mycompany.foodwaste_project.domain.Game;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +28,8 @@ import javafx.stage.Modality;
  */
 public class SmartphoneSMSController implements Initializable {
 
-
+    Game g1 = Game.getInstance();
+    
     @FXML
     private Button backButton;
     @FXML
@@ -39,7 +41,7 @@ public class SmartphoneSMSController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        labelQuest.setText(String.valueOf(g1.getTime()));
     }    
     
     @FXML
