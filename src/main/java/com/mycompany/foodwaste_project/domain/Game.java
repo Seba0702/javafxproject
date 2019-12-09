@@ -273,9 +273,9 @@ public class Game
     }
     
     
-    public void events()
+    public void events(String msg)
     {
-        String standardMessage = ("You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
+        String standardMessage = msg; //("You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
         notificationMessage = standardMessage;
         
         for(Events var : eventList)
@@ -911,22 +911,23 @@ public class Game
             return true;
         }
     }
-
-    public void sleep() 
-    {     
-        time.swichDayWithBed();
-        //System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
-        time.checkForDaysQuitGame();
-        events(); 
-    }
     
-    public void sleepOutOfBedroom()
+    public void sleep()
     {
-        time.swichDayOutsideOfBedroom();
-        System.out.println("You just slept " + currentRoom.getShortDescription() + ". You had 16 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours());
-        System.out.println("It is better to sleep inside your bedroom");
-        time.checkForDaysQuitGame();
-        events();
+        if (currentRoom.getShortDescription() == "in the bedroom")
+        {
+            time.swichDayWithBed();
+            String msg = "You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours();
+            time.checkForDaysQuitGame();
+            events(msg); 
+        }
+        else
+        {
+            time.swichDayOutsideOfBedroom();
+            String msg =  "You just slept " + currentRoom.getShortDescription() + ". You had 16 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours() + ". It is better to sleep inside your bedroom.";
+            time.checkForDaysQuitGame();
+            events(msg);
+        }
     }
     
     

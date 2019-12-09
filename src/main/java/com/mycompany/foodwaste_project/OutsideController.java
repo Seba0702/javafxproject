@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -43,6 +44,10 @@ public class OutsideController implements Initializable {
     private Button statsButton;
     @FXML
     private Button inventoryButton;
+    @FXML
+    private GridPane sleep;
+    @FXML
+    private Button buttonSleep;
     /**
      * Initializes the controller class.
      */
@@ -102,6 +107,20 @@ public class OutsideController implements Initializable {
     @FXML
     private void openInventory(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Inventory.fxml"));
+        Parent parent = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(parent, 600, 241));
+        stage.show();
+    }
+    
+    @FXML
+    private void sleep(ActionEvent event) throws IOException {
+        
+        
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
