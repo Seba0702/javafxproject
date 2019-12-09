@@ -15,7 +15,8 @@ public class Game
     private Room currentRoom;
     private String pName;
     private Room nextRoom;
-    private String notificationMessage;
+    private String notificationMessage, questMessage;
+    
  
     
     Characters p1 = new Characters();
@@ -94,6 +95,12 @@ public class Game
        return notificationMessage;
     }
      
+    public String getQuestDescription() 
+    {
+        checkQuest();
+        return questMessage;
+    }
+     
 
     /* public ArrayList<Item> supermarkedItems = new ArrayList();     
      public ArrayList supermarkedItems() {
@@ -146,7 +153,22 @@ public class Game
         if(0 >= p1.health) 
         {           
             System.exit(0);            
-        }  
+        }                  
+    }
+    
+    private void checkQuest()
+    {
+        for (Quests var : questList)
+        {
+            if (var.getDay() != time.getDateOfDays() || var.getFinished())
+            {
+                questMessage = "No quest today, or you already completed it";
+                continue;
+            }
+  
+            questMessage = var.getDescription();
+            break;
+        } 
     }
     
     public void createRooms()
@@ -694,6 +716,7 @@ public class Game
         }     
     }
     
+    
     private void unlockApartment()
     {
         Room nextRoom = currentRoom.getExit("apartment");
@@ -841,9 +864,7 @@ public class Game
             {
                 if (var.getDay() != time.getDateOfDays() || var.getFinished()) continue;
                 
-                ph.setNotifications(var.getDescription());
-                
-                   
+                ph.setNotifications(var.getDescription());     
             }
             
             

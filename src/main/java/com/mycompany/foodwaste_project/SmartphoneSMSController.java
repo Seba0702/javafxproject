@@ -36,12 +36,14 @@ public class SmartphoneSMSController implements Initializable {
     private Label labelQuest;
     @FXML
     private AnchorPane smsAnchorpane;
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Label questDescription;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        labelQuest.setText(String.valueOf(g1.getTime()));
+        labelQuest.setText("1");
+        questDescription.setText(String.valueOf(g1.getQuestDescription()));
     }    
     
     @FXML
