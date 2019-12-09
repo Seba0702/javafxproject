@@ -11,7 +11,7 @@
 
 <VBox prefHeight="241.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.foodwaste_project.InventoryController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: yellow;" VBox.vgrow="ALWAYS">
          <children>
             <Label graphicTextGap="20.0" layoutX="268.0" layoutY="13.0" text="INVENTORY" />
          </children>
