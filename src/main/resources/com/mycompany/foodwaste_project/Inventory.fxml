@@ -12,7 +12,7 @@
 
 <VBox prefHeight="241.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.foodwaste_project.InventoryController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: gold;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: olive;" VBox.vgrow="ALWAYS">
          <children>
             <Label graphicTextGap="20.0" layoutX="268.0" layoutY="13.0" text="INVENTORY" />
          </children>
@@ -31,13 +31,13 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <ChoiceBox prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <ChoiceBox fx:id="cbItems" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
             <Button fx:id="donateButton" mnemonicParsing="false" onAction="#donateItem" text="Donate" GridPane.columnIndex="1" GridPane.valignment="TOP" />
             <Button mnemonicParsing="false" text="Use" GridPane.columnIndex="1" />
             <Button fx:id="throwoutButton" mnemonicParsing="false" onAction="#throwoutItem" text="Throw out" GridPane.columnIndex="1" />
             <Button fx:id="useButton" mnemonicParsing="false" onAction="#useItem" text="Use" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-            <Button fx:id="eatButton" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#eatItem" text="Eat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
             <Button fx:id="dropButton" mnemonicParsing="false" onAction="#dropItem" text="Drop" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+            <Button fx:id="eatButton" mnemonicParsing="false" onAction="#eatItem" text="Eat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
          </children>
       </GridPane>
   </children>
