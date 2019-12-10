@@ -966,6 +966,14 @@ public class Game
         
       //  System.out.println("You have " + m1.getBalance() + " kr. left in your account");
     }
+    public boolean checkTimeIsZero()
+    {
+        if(time.getDateOfHours()==0)
+        {
+            return true;
+        }
+        else return false;
+    }
 }
 
 
