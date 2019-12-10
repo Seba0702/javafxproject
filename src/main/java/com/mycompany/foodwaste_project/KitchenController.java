@@ -30,6 +30,8 @@ public class KitchenController implements Initializable {
     private Button smartphoneButton;
     @FXML
     private Button inventoryButton;
+    @FXML
+    private Button buttonSleep;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -74,6 +76,17 @@ public class KitchenController implements Initializable {
     @FXML
     private void openInventory(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Inventory.fxml"));
+        Parent parent = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(parent, 600, 241));
+        stage.show();
+    }
+
+    @FXML
+    private void sleep(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);

@@ -29,6 +29,8 @@ public class NaturmarketController implements Initializable {
     private Button inventoryButton;
     @FXML
     private Button buyButton;
+    @FXML
+    private Button buttonSleep;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,6 +84,17 @@ public class NaturmarketController implements Initializable {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setScene(new Scene(parent, 200, 400));
+        stage.show();
+    }
+
+    @FXML
+    private void sleep(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
+        Parent parent = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(parent, 600, 241));
         stage.show();
     }
 

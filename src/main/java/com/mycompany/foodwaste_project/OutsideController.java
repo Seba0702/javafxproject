@@ -117,9 +117,6 @@ public class OutsideController implements Initializable {
     
     @FXML
     private void sleep(ActionEvent event) throws IOException {
-        
-        
-        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
