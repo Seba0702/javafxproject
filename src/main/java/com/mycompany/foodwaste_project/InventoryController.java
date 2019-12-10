@@ -21,9 +21,15 @@ public class InventoryController implements Initializable {
     @FXML
     private Button closeButton;
     @FXML
-    private Label labelDay;
+    private Button donateButton;
     @FXML
-    private Label labelMessage;
+    private Button throwoutButton;
+    @FXML
+    private Button useButton;
+    @FXML
+    private Button eatButton;
+    @FXML
+    private Button dropButton;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -34,6 +40,26 @@ public class InventoryController implements Initializable {
     private void closeApp(ActionEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void donateItem(ActionEvent event) {
+    }
+
+    @FXML
+    private void throwoutItem(ActionEvent event) {
+    }
+
+    @FXML
+    private void useItem(ActionEvent event) {
+    }
+
+    @FXML
+    private void eatItem(ActionEvent event) {
+    }
+
+    @FXML
+    private void dropItem(ActionEvent event) {
     }
     
 }

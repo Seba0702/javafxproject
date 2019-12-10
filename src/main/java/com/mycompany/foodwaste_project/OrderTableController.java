@@ -52,7 +52,7 @@ public class OrderTableController implements Initializable {
         
         cbItems.getItems().addAll(g1.getRoom().getArray());
         
-       // System.out.println(cbItems.getItems().addAll( g1.supermarkedItems() ));
+        //System.out.println(cbItems.getItems().addAll( g1.supermarkedItems() ));
 
         //cbItems.getSelectionModel().selectedItemProperty().addListener( e -> System.out.println(g1.getPrice()));
         cbItems.getSelectionModel().select(0); //.addListener( e -> labelPrice.setText(String.valueOf(g1.getRoom().getArray().get(1).getPrice())));
@@ -82,9 +82,7 @@ public class OrderTableController implements Initializable {
             g1.Buy(cbItems.getValue().getPrice());
         //  g1.getRoom().getArray().remove(cbItems.getValue());
             g1.getInventory().add(cbItems.getValue());
-            
-            
-            
+            System.out.println(String.valueOf(g1.getInventory()));
             
             return;
         }
