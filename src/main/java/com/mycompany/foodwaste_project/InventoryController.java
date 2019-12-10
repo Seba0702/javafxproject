@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -30,6 +31,8 @@ public class InventoryController implements Initializable {
     private Button eatButton;
     @FXML
     private Button dropButton;
+    @FXML
+    private ChoiceBox<?> cbItems;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
