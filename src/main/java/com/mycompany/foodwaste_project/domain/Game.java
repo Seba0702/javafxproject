@@ -46,6 +46,11 @@ public class Game
         return sSoleInstance;
     }
     
+    public ArrayList<Item> getInventory()
+    {
+        return inventory;
+    }
+    
     public int getHealth()
     {
         return p1.health;
