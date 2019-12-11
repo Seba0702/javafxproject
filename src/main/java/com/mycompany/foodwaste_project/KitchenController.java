@@ -40,16 +40,28 @@ public class KitchenController implements Initializable {
     
     @FXML
     private void goEntrance(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("Apartment");
         g1.goToRoom("apartment");
+    }
+    else {
+        
+    }    
     }
 
     @FXML
     private void goLivingroom(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+        {
         App.setRoot("Livingroom");
         g1.goToRoom("livingroom");
     }
-
+        else 
+        {
+        }
+        
+        }
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Smartphone.fxml"));

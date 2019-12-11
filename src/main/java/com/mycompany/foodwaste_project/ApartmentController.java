@@ -43,43 +43,83 @@ public class ApartmentController implements Initializable {
     
     @FXML
     private void goOutside(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+        {
         App.setRoot("Outside");
-        g1.goToRoom("outside");
+        g1.goToRoom("outside");    
+        }
+        else
+        {
+            
+        }
     }
 
     @FXML
     private void goKitchen(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+        {
         App.setRoot("Kitchen");
-        g1.goToRoom("kitchen");
+        g1.goToRoom("kitchen");    
+        }
+        
     }
 
     @FXML
     private void goLivingroom(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+        {
         App.setRoot("Livingroom");
         g1.goToRoom("livingroom");
-    }
+        }
+        else
+        {
+            
+        }
+        }
 
     @FXML
     private void goBedroom(ActionEvent event) throws IOException {
-        App.setRoot("Bedroom");
-        g1.goToRoom("bedroom");
+        if(g1.checkTimeIsZero()==!true)
+        {
+            App.setRoot("Bedroom");
+            g1.goToRoom("bedroom");
+        }
+        else
+        {
+            
+        }
     }
 
     private void goMcDonalds(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+                {
         App.setRoot("mcDonalds");
         g1.goToRoom("mcdonalds");
+        }
+        else
+        {
     }
-
+    }
     private void goFakta(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+        {
         App.setRoot("Fakta");
         g1.goToRoom("fakta");
     }
-
+        else{
+            
+        }
+    }
     private void goNaturmarket(ActionEvent event) throws IOException {
+     if(g1.checkTimeIsZero()==!true)
+     {
         App.setRoot("Naturmarket");
         g1.goToRoom("naturmarket");
+    } else 
+     {
+         
+     }
     }
-
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Smartphone.fxml"));

@@ -39,10 +39,15 @@ public class NaturmarketController implements Initializable {
     
     @FXML
     private void goOutside(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("Outside");
         g1.goToRoom("outside");
     }
-
+    else {
+        
+    }
+    }
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Smartphone.fxml"));

@@ -40,10 +40,14 @@ public class FaktaController implements Initializable {
     
     @FXML
     private void goOutside(ActionEvent event) throws IOException {
-        App.setRoot("Outside");
+    if(g1.checkTimeIsZero()==!true)
+        {    App.setRoot("Outside");
         g1.goToRoom("outside");
     }
-    
+    else {
+        
+    }
+    }
     @FXML
     private void buyItems(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderTable.fxml"));

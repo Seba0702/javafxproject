@@ -39,30 +39,29 @@ public class BedroomController implements Initializable {
     
     @FXML
     private void goLivingroom(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("Livingroom");
         g1.goToRoom("livingroom");
+    
+    }
+    else{
+        
+    }
     }
 
     @FXML
     private void goEntrance(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+        {
         App.setRoot("Apartment");
         g1.goToRoom("apartment");
     }
-
-    private void goMcDonalds(ActionEvent event) throws IOException {
-        App.setRoot("mcDonalds");
-        g1.goToRoom("mcdonalds");
+        else{
+            
+        }
     }
 
-    private void goFakta(ActionEvent event) throws IOException {
-        App.setRoot("Fakta");
-        g1.goToRoom("fakta");
-    }
-
-    private void goNaturmarket(ActionEvent event) throws IOException {
-        App.setRoot("Naturmarket");
-        g1.goToRoom("naturmarket");
-    }
     
    
 

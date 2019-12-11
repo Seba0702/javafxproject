@@ -41,23 +41,42 @@ public class LivingroomController implements Initializable {
     
     @FXML
     private void goKitchen(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("Kitchen");
-       
         g1.goToRoom("kitchen");
+    }
+       else
+    {
+        
+    }
+        
     }
 
     @FXML
     private void goEntrance(ActionEvent event) throws IOException {
+        if(g1.checkTimeIsZero()==!true)
+        {
         App.setRoot("Apartment");
         g1.goToRoom("apartment");
     }
-
+        else
+        {
+            
+        }
+    }
     @FXML
     private void goBedroom(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("Bedroom");
         g1.goToRoom("bedroom");
     }
-
+    else
+    {
+        
+    }
+    }
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Smartphone.fxml"));
