@@ -58,29 +58,53 @@ public class OutsideController implements Initializable {
     
     @FXML
     private void goApartment(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("Apartment");
         g1.goToRoom("apartment");
          
     }
-
+    else 
+    {
+        
+    }
+    }
     @FXML
     private void goMcDonalds(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("mcDonalds");
         g1.goToRoom("mcdonalds");
     }
-
+    else 
+    {
+        
+    }
+    }
     @FXML
     private void goFakta(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
+        
         App.setRoot("Fakta");
         g1.goToRoom("fakta");
     }
-
+    else
+    {
+        
+    }
+    }
     @FXML
     private void goNaturmarket(ActionEvent event) throws IOException {
+    if(g1.checkTimeIsZero()==!true)
+    {
         App.setRoot("Naturmarket");
         g1.goToRoom("naturmarket");
     }
-
+    else{
+        
+    }
+    }
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Smartphone.fxml"));
