@@ -21,7 +21,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="outside" mnemonicParsing="false" onAction="#goOutside" prefHeight="50.0" prefWidth="75.0" text="Outside" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button fx:id="outside" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#goOutside" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonDown.css" text="Outside" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -29,6 +29,9 @@
          <image>
             <Image url="@GUI_Images/Character.jpg" />
          </image>
+         <GridPane.margin>
+            <Insets bottom="20.0" />
+         </GridPane.margin>
       </ImageView>
       <Button fx:id="buyButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyItems" prefHeight="19.0" prefWidth="90.0" text="Buy items" GridPane.valignment="TOP">
          <GridPane.margin>

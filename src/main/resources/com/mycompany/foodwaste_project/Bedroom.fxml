@@ -22,11 +22,11 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="livingroom" mnemonicParsing="false" onAction="#goLivingroom" prefHeight="50.0" prefWidth="95.0" text="Livingroom" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="livingroom" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goLivingroom" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonLeft.css" text="Livingroom" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="entrance" mnemonicParsing="false" onAction="#goEntrance" prefHeight="50.0" prefWidth="77.0" text="Entrance" GridPane.rowIndex="1">
+      <Button fx:id="entrance" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goEntrance" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonLeft.css" text="Entrance" GridPane.rowIndex="1">
          <font>
             <Font size="15.0" />
          </font></Button>

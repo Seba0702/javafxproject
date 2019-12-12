@@ -21,19 +21,19 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="apartment" mnemonicParsing="false" onAction="#goApartment" prefHeight="50.0" prefWidth="91.0" text="Apartment" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button fx:id="apartment" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#goApartment" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonDown.css" text="Apartment" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="mcDonalds" mnemonicParsing="false" onAction="#goMcDonalds" prefHeight="50.0" prefWidth="98.0" text="McDonalds" GridPane.rowIndex="1">
+      <Button fx:id="mcDonalds" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goMcDonalds" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonLeft.css" text="McDonalds" GridPane.rowIndex="1">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="fakta" mnemonicParsing="false" onAction="#goFakta" prefHeight="50.0" prefWidth="75.0" text="Fakta" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <Button fx:id="fakta" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#goFakta" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonUp.css" text="Fakta" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="naturmarket" mnemonicParsing="false" onAction="#goNaturmarket" prefHeight="50.0" prefWidth="103.0" text="Loes-Market" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="naturmarket" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goNaturmarket" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonRight.css" text="LØS Market" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font></Button>

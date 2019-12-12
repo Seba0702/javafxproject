@@ -23,11 +23,11 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="entrance" mnemonicParsing="false" onAction="#goEntrance" prefHeight="50.0" prefWidth="88.0" text="Entrance" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+      <Button fx:id="entrance" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goEntrance" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonRight.css" text="Entrance" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="livingroom" mnemonicParsing="false" onAction="#goLivingroom" prefHeight="50.0" prefWidth="97.0" text="Livingroom" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="livingroom" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goLivingroom" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonRight.css" text="Livingroom" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font></Button>

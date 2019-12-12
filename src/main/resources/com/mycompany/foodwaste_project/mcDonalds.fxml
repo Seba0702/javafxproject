@@ -21,14 +21,20 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="outside" mnemonicParsing="false" onAction="#goOutside" prefHeight="50.0" prefWidth="75.0" text="Outside" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="outside" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goOutside" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonRight.css" text="Outside" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
-         </font></Button>
-      <ImageView fitHeight="263.0" fitWidth="264.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         </font>
+         <GridPane.margin>
+            <Insets right="110.0" top="212.0" />
+         </GridPane.margin></Button>
+      <ImageView fitHeight="263.0" fitWidth="264.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <image>
             <Image url="@GUI_Images/Character.jpg" />
          </image>
+         <GridPane.margin>
+            <Insets right="200.0" />
+         </GridPane.margin>
       </ImageView>
       <Button fx:id="statsButton" mnemonicParsing="false" onAction="#viewStats" text="Stats" GridPane.valignment="TOP" />
       <Button fx:id="smartphoneButton" mnemonicParsing="false" onAction="#openSmartphone" text="Phone" GridPane.valignment="TOP">

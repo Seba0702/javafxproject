@@ -21,19 +21,19 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="outside" mnemonicParsing="false" onAction="#goOutside" prefHeight="50.0" prefWidth="75.0" text="Outside" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <Button fx:id="outside" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#goOutside" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonUp.css" text="Outside" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="kitchen" mnemonicParsing="false" onAction="#goKitchen" prefHeight="50.0" prefWidth="75.0" text="Kitchen" GridPane.rowIndex="1">
+      <Button fx:id="kitchen" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#goKitchen" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonLeft.css" text="Kitchen" GridPane.rowIndex="1">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="livingroom" mnemonicParsing="false" onAction="#goLivingroom" prefHeight="50.0" prefWidth="96.0" text="Livingroom" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button fx:id="livingroom" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#goLivingroom" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonDown.css" text="Livingroom" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="bedroom" mnemonicParsing="false" onAction="#goBedroom" prefHeight="50.0" prefWidth="81.0" text="Bedroom" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="bedroom" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goBedroom" prefHeight="65.0" prefWidth="125.0" styleClass="first-button" stylesheets="@shapes/buttonRight.css" text="Bedroom" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font></Button>
