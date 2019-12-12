@@ -2,7 +2,7 @@ package com.mycompany.foodwaste_project.domain;
 
 public class Time {
 
-    private int hours = 22;
+    private int hours = 6;
 
     private int days = 1;
 
