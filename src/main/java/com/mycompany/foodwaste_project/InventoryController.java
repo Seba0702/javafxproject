@@ -132,8 +132,10 @@ public class InventoryController implements Initializable {
 
     @FXML
     private void dropItem(ActionEvent event) {
-        g1.getInventory().remove(cbItems.getValue());
+        
         g1.dropItem(cbItems.getValue().toString());
+        g1.getInventory().remove(cbItems.getValue());
+        
         messageLabel.setText("You dropped some " + cbItems.getValue().getName());
         messageLabel2.setText("");
         messageLabel3.setText("");

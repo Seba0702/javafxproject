@@ -683,7 +683,7 @@ public class Game
             if(!var.getName().equals(item)) continue;
             
             inventory.remove(var);
-            currentRoom.items.add(var);
+            currentRoom.getArray().add(var);
             //ic.messageLabel.setText("You dropped some " + item);
            // System.out.println("You dropped some " + item);
             return;
