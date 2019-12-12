@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Game 
 {
 
-    Item item = new Item();
+  
     Time time = new Time();
     
     private String name;
@@ -62,10 +62,7 @@ public class Game
     {
         return p1.hunger;
     }
-    public int getPrice(Item value) {
-        return item.getPrice();
-    }
-    
+ 
     public double getMoney()
     {
         return m1.balance;
@@ -131,10 +128,9 @@ public class Game
      } */
     
      
-     public String getItemNames() {
-         return item.toString();
-     }
-    public void Buy (double price) { 
+   
+    public void Buy (double price)
+    { 
         m1.balance = m1.balance-price;
     }
     
@@ -176,7 +172,24 @@ public class Game
         if(0 >= p1.health) 
         {           
             System.exit(0);            
-        }                  
+        }  
+        
+        for (Item p : inventory) 
+        {
+                
+            if (!p.isFood()) continue;
+               
+                
+            if (p.getHoursToRot() == 0)
+            {
+                p.setSpoilStatus(true);
+            } 
+            else
+            {
+                p.setRotHoursMinus(1.00);
+             
+            }
+        }   
     }
     
     private void checkQuest()
