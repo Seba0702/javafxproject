@@ -20,7 +20,7 @@ public class Game
     private String notificationMessage, questMessage;
     
  
-    //InventoryController ic = new InventoryController();
+
     Characters p1 = new Characters();
     Point point = new Point();
     Smartphone ph = new Smartphone();
@@ -109,31 +109,6 @@ public class Game
         return questMessage;
     }
      
-
-    /* public ArrayList<Item> supermarkedItems = new ArrayList();     
-     public ArrayList supermarkedItems() {
-
-
-        Item meat, milk, cake, rice, ryebread;
-                
-        milk = new Item("milk", "This is milk!", 14, true, true, 20);
-        meat = new Item("meat", "This is meat!", 35, true, true, 30);
-        cake = new Item("cake", "This is a whole cake!", 60, true, true, 50);
-        rice = new Item("rice", "This is 500g of white rice!", 25, true, true, 50);
-        ryebread = new Item("ryebread", "This is a loaf of ryebread", 25, true, true, 25);
-        
-        supermarkedItems.add(meat);
-        supermarkedItems.add(milk);
-        supermarkedItems.add(cake);
-        supermarkedItems.add(rice);
-        supermarkedItems.add(ryebread);
-        
-        return supermarkedItems;
-        
-     } */
-    
-     
-   
     public void Buy (double price)
     { 
         m1.balance = m1.balance-price;
@@ -269,7 +244,7 @@ public class Game
         
         // Adding items to the specific rooms
         
-        Item meat, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter;
+        Item uncookedchicken, meat, bread, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter;
         
         milk = new Item("milk", "This is milk!", 14, true, true, 20);
         meat = new Item("meat", "This is meat!", 35, true, true, 30);
@@ -281,8 +256,13 @@ public class Game
         burger = new Item("burger", "This is a burger!", 10, true, true, 28);
         chickennuggets = new Item("chickennuggets", "These are chicken nuggets", 25, true, true, 40);
         
+        
+       // Quest items
+        
+        bread = new Item("bread", "This is a loaf of bread", 30, true, false, 25);
         key = new Item("key", "This is your apartment key", 0, false, false, 0);
         letter = new Item("letter", "This is a letter for your grandma", 0, false, false, 0);
+        uncookedchicken = new Item("uncooked-chicken", "This is uncooked chicken", 0, false, false, 0);
 
         outsideItems.add(key);
         
@@ -293,7 +273,9 @@ public class Game
         supermarkedItems.add(cake);
         supermarkedItems.add(rice);
         supermarkedItems.add(ryebread);
+        supermarkedItems.add(bread);
 
+        kitchenItems.add(uncookedchicken);
         
         mcDonaldsItems.add(cheeseburger);
         mcDonaldsItems.add(burger);
@@ -313,22 +295,22 @@ public class Game
         // Create Quests
         
         Quests questOne = new Quests( 1, "You need to pickup the key outside your apartment, and unlock your house door!", "You just unlocked your front door.", outside, key);
-        Quests questTwo = new Quests(2, "You need to pickup the letter inside your apartment, it is a letter for your grandma, you better bring it to post office in fakta.", "You just gave your letter to the post office.", supermarked, letter);
-     // Quests questThree = new Quests(4, "", ,);
-     // Quests questFour = new Quests(6, "", ,);
+        Quests questTwo = new Quests(2, "You need to pickup the letter inside your apartment, it is a letter for your grandma, you better bring it to the post office in fakta.", "You just gave your letter to the post office.", supermarked, letter);
+        Quests questThree = new Quests(4, "Buy some bread in fakta and bring it home, just place it on the kitchen counter - Mom", "You just brought some bread home",kitchen, bread);
+        Quests questFour = new Quests(6, "We bought way too much meat. Bring the uncooked chicken from the kitchen to fakta and get the money back. ","You just returned some chicken to fakta" , supermarked, uncookedchicken);
      // Quests questFive = new Quests(7, "", ,);
      
      
         questList.add(questOne);
         questList.add(questTwo);
-    //  questList.add(questThree);
-    //  questList.add(questFour);
+        questList.add(questThree);
+        questList.add(questFour);
     //  questList.add(questFive);
     
         // Create Events
         
         Events e1 = new Events(3, "Instead of going to sleep, you went out with your friends. Doing the night you bought McDonalds and your food at home got spoiled.", -200);
-        Events e2 = new Events(5, "test", -150);
+        Events e2 = new Events(5, "Your electric bill just came in, and you used way to much electricity. Stop letting netflix run whileyou sleep", -450);
         
         eventList.add(e1);
         eventList.add(e2);
