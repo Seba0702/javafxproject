@@ -147,11 +147,6 @@ public class Game
         else
         {
             p1.subHunger(); 
-        }
-        
-        if(0 >= p1.health) 
-        {           
-            System.exit(0);            
         }  
         
         for (Item p : inventory) 
@@ -978,14 +973,14 @@ public class Game
         {
             time.swichDayWithBed();
             String msg = "You just slept " + currentRoom.getShortDescription() + ". You had 6 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours();
-            time.checkForDaysQuitGame();
+            //time.checkForDaysQuitGame();
             events(msg); 
         }
         else
         {
             time.swichDayOutsideOfBedroom();
             String msg =  "You just slept " + currentRoom.getShortDescription() + ". You had 16 hours of sleep. It is now day: " + time.getDateOfDays() + " and the clock is " + time.getDateOfHours() + ". It is better to sleep inside your bedroom.";
-            time.checkForDaysQuitGame();
+            //time.checkForDaysQuitGame();
             events(msg);
         }
     }

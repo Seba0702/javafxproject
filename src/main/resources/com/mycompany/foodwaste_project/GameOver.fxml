@@ -5,28 +5,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="286.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller=".GameOverController">
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.mycompany.foodwaste_project.GameOverController">
    <children>
-      <Label layoutX="187.0" layoutY="36.0" prefHeight="46.0" prefWidth="150.0" text="Gameover" textAlignment="CENTER" textFill="RED">
+      <Label layoutX="232.0" layoutY="52.0" text="Gameover" textFill="RED">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="206.0" layoutY="82.0" text="You lost">
+      <Label layoutX="257.0" layoutY="98.0" text="You lost">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="188.0" layoutY="125.0" text="You scored:">
+      <Label layoutX="238.0" layoutY="164.0" text="You scored:">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="pointLabel" layoutX="237.0" layoutY="160.0" prefHeight="27.0" prefWidth="50.0" text="Label">
+      <Label fx:id="pointLabel" layoutX="279.0" layoutY="207.0" text="Label">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="quitButton" layoutX="242.0" layoutY="246.0" mnemonicParsing="false" onAction="#onActionQuitButton" text="Quit" />
+      <Button fx:id="quitButton" layoutX="274.0" layoutY="292.0" mnemonicParsing="false" onAction="#quitGame" text="Quit" />
    </children>
 </AnchorPane>

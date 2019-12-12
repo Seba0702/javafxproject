@@ -79,12 +79,6 @@ public class Time {
         }
     }
 
-    public void checkForDaysQuitGame() {
-        if (this.days >= 8) {
-            System.exit(0);
-
-        }
-    }
 
 }
 

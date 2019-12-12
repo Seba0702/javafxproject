@@ -81,6 +81,12 @@ public class OutsideController implements Initializable {
        
         d1.makeNotification();
     }
+    
+    if (g1.getDay() >= 8 || g1.getHealth() <= 0) 
+    {
+        App.setRoot("GameOver");
+    }
+    
     }
     @FXML
     private void goMcDonalds(ActionEvent event) throws IOException {

@@ -49,6 +49,12 @@ public class NaturmarketController implements Initializable {
     else {
         d1.makeNotification();
     }
+    
+    if (g1.getDay() >= 8 || g1.getHealth() <= 0) 
+    {
+        App.setRoot("GameOver");
+    }
+    
     }
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
