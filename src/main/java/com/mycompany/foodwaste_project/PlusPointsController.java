@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 /**
  * FXML Controller class
  *
@@ -22,6 +24,10 @@ public class PlusPointsController implements Initializable {
 
     @FXML
     private Button closeButton;
+    @FXML
+    private Label labelTitel;
+    @FXML
+    private TextArea textAreaMSG;
     /**
      * Initializes the controller class.
      */
