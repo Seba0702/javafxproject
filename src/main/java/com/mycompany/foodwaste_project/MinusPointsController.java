@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -32,6 +33,8 @@ public class MinusPointsController implements Initializable {
     
     @FXML
     private void closeApp(ActionEvent event) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
     }
 
 }
