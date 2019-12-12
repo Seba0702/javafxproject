@@ -102,6 +102,13 @@ public class NaturmarketController implements Initializable {
 
     @FXML
     private void sleep(ActionEvent event) throws IOException {
+        
+        if (g1.getDay() >= 7 || g1.getHealth() <= 0)
+        {
+            App.setRoot("GameOver");
+            return;
+        }
+        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

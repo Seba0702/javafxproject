@@ -16,10 +16,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class KitchenController implements Initializable {
+
     DonateNotificationController d1 = new DonateNotificationController();
     Game g1 = Game.getInstance();
-    
-    
+
     @FXML
     private Button entrance;
     @FXML
@@ -34,37 +34,39 @@ public class KitchenController implements Initializable {
     private Button buttonSleep;
     @FXML
     private Button roomInventoryButton;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-    
+
+    }
+
     @FXML
     private void goEntrance(ActionEvent event) throws IOException {
-    if(g1.checkTimeIsZero()==!true)
-    {
-        App.setRoot("Apartment");
-        g1.goToRoom("apartment");
-    }
-    else {
-    d1.makeNotification();
-    }    
+        if (g1.checkTimeIsZero() == !true) {
+            App.setRoot("Apartment");
+            g1.goToRoom("apartment");
+        } else {
+            d1.makeNotification();
+        }
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
     }
 
     @FXML
     private void goLivingroom(ActionEvent event) throws IOException {
-        if(g1.checkTimeIsZero()==!true)
-        {
-        App.setRoot("Livingroom");
-        g1.goToRoom("livingroom");
+        if (g1.checkTimeIsZero() == !true) {
+            App.setRoot("Livingroom");
+            g1.goToRoom("livingroom");
+        } else {
+            d1.makeNotification();
+        }
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
+
     }
-        else 
-        {
-        d1.makeNotification();
-        }
-        
-        }
+
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Smartphone.fxml"));
@@ -101,6 +103,12 @@ public class KitchenController implements Initializable {
 
     @FXML
     private void sleep(ActionEvent event) throws IOException {
+
+        if (g1.getDay() >= 7 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+            return;
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

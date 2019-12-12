@@ -16,9 +16,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class BedroomController implements Initializable {
-    
+
     Game g1 = Game.getInstance();
-    
+
     @FXML
     private Button livingroom;
     @FXML
@@ -36,36 +36,35 @@ public class BedroomController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-    
+
+    }
+
     @FXML
     private void goLivingroom(ActionEvent event) throws IOException {
-    if(g1.checkTimeIsZero()==!true)
-    {
-        App.setRoot("Livingroom");
-        g1.goToRoom("livingroom");
-    
-    }
-    else{
-        
-    }
+        if (g1.checkTimeIsZero() == !true) {
+            App.setRoot("Livingroom");
+            g1.goToRoom("livingroom");
+
+        }
+
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
     }
 
     @FXML
     private void goEntrance(ActionEvent event) throws IOException {
-        if(g1.checkTimeIsZero()==!true)
-        {
-        App.setRoot("Apartment");
-        g1.goToRoom("apartment");
-    }
-        else{
-            
+        if (g1.checkTimeIsZero() == !true) {
+            App.setRoot("Apartment");
+            g1.goToRoom("apartment");
+        } else {
+
+        }
+
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
         }
     }
-
-    
-   
 
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
@@ -103,9 +102,11 @@ public class BedroomController implements Initializable {
 
     @FXML
     private void sleep(ActionEvent event) throws IOException {
-        
-        
-        
+
+        if (g1.getDay() >= 7 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

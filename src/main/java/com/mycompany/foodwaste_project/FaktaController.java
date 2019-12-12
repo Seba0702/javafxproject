@@ -34,29 +34,27 @@ public class FaktaController implements Initializable {
     private Button buttonSleep;
     @FXML
     private Button roomInventoryButton;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-    
+
+    }
+
     @FXML
     private void goOutside(ActionEvent event) throws IOException {
-    if(g1.checkTimeIsZero()==!true)
-        {    App.setRoot("Outside");
-        g1.goToRoom("outside");
+        if (g1.checkTimeIsZero() == !true) {
+            App.setRoot("Outside");
+            g1.goToRoom("outside");
+        } else {
+            d1.makeNotification();
+        }
+
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
+
     }
-    else
-    {
-        d1.makeNotification();
-    }
-    
-    if (g1.getDay() >= 8 || g1.getHealth() <= 0) 
-    {
-        App.setRoot("GameOver");
-    }
-    
-    }
+
     @FXML
     private void buyItems(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderTable.fxml"));
@@ -65,21 +63,6 @@ public class FaktaController implements Initializable {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setScene(new Scene(parent, 328, 242));
         stage.show();
-    }
-
-    private void goMcDonalds(ActionEvent event) throws IOException {
-        App.setRoot("mcDonalds");
-        g1.goToRoom("mcdonalds");
-    }
-
-    private void goFakta(ActionEvent event) throws IOException {
-        App.setRoot("Fakta");
-        g1.goToRoom("fakta");
-    }
-
-    private void goNaturmarket(ActionEvent event) throws IOException {
-        App.setRoot("Naturmarket");
-        g1.goToRoom("naturmarket");
     }
 
     @FXML
@@ -118,6 +101,12 @@ public class FaktaController implements Initializable {
 
     @FXML
     private void sleep(ActionEvent event) throws IOException {
+
+        if (g1.getDay() >= 7 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+            return;
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

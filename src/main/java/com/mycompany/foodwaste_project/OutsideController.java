@@ -21,15 +21,16 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 /**
  * FXML Controller class
  *
  * @author Cavra
  */
 public class OutsideController implements Initializable {
-    
+
     DonateNotificationController d1 = new DonateNotificationController();
-    
+
     Game g1 = Game.getInstance();
 
     @FXML
@@ -52,79 +53,77 @@ public class OutsideController implements Initializable {
     private Button buttonSleep;
     @FXML
     private Button roomInventoryButton;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     @FXML
     private void goApartment(ActionEvent event) throws IOException {
-    if(g1.checkTimeIsZero()==!true)
-    {
-        if(g1.getNextRoom("apartment").isUnlocked() != false)
-        {
-            App.setRoot("Apartment");
-            g1.goToRoom("apartment"); 
-         
-        }
-        else
-        {
-            System.out.println("Locked"); 
+        if (g1.checkTimeIsZero() == !true) {
+            if (g1.getNextRoom("apartment").isUnlocked() != false) {
+                App.setRoot("Apartment");
+                g1.goToRoom("apartment");
+
+            } else {
+                System.out.println("Locked");
+                d1.makeNotification();
+            }
+        } else {
+
             d1.makeNotification();
-        }     
+        }
+
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
+
     }
-    else
-    {
-       
-        d1.makeNotification();
-    }
-    
-    if (g1.getDay() >= 8 || g1.getHealth() <= 0) 
-    {
-        App.setRoot("GameOver");
-    }
-    
-    }
+
     @FXML
     private void goMcDonalds(ActionEvent event) throws IOException {
-    if(g1.checkTimeIsZero()==!true)
-    {
-        App.setRoot("mcDonalds");
-        g1.goToRoom("mcdonalds");
+        if (g1.checkTimeIsZero() == !true) {
+            App.setRoot("mcDonalds");
+            g1.goToRoom("mcdonalds");
+        } else {
+            d1.makeNotification();
+        }
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
     }
-    else
-    {
-        d1.makeNotification();
-    }
-    }
+
     @FXML
     private void goFakta(ActionEvent event) throws IOException {
-    if(g1.checkTimeIsZero()==!true)
-    {
-        
-        App.setRoot("Fakta");
-        g1.goToRoom("fakta");
+        if (g1.checkTimeIsZero() == !true) {
+
+            App.setRoot("Fakta");
+            g1.goToRoom("fakta");
+        } else {
+            d1.makeNotification();
+        }
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
     }
-    else
-    {
-        d1.makeNotification();
-    }
-    }
+
     @FXML
     private void goNaturmarket(ActionEvent event) throws IOException {
-    if(g1.checkTimeIsZero()==!true)
-    {
-        App.setRoot("Naturmarket");
-        g1.goToRoom("naturmarket");
+        if (g1.checkTimeIsZero() == !true) {
+            App.setRoot("Naturmarket");
+            g1.goToRoom("naturmarket");
+        } else {
+            d1.makeNotification();
+        }
+        if (g1.getDay() >= 8 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+        }
     }
-    else
-    {
-        d1.makeNotification();
-    }
-    }
+
     @FXML
     private void openSmartphone(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Smartphone.fxml"));
@@ -158,9 +157,15 @@ public class OutsideController implements Initializable {
         stage.setScene(new Scene(parent, 600, 241));
         stage.show();
     }
-    
+
     @FXML
     private void sleep(ActionEvent event) throws IOException {
+
+        if (g1.getDay() >= 7 || g1.getHealth() <= 0) {
+            App.setRoot("GameOver");
+            return;
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
