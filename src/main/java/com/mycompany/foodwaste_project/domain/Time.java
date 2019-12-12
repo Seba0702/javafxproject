@@ -2,7 +2,7 @@ package com.mycompany.foodwaste_project.domain;
 
 public class Time {
 
-    private int hours = 1;
+    private int hours = 22;
 
     private int days = 1;
 
@@ -34,27 +34,43 @@ public class Time {
 
     public void swichDayWithBed() {
         {
+        if(this.hours==0)
+        {
+            this.days+=0;
+            this.hours+=6;
+        }
+        else {
             this.days += 1;
             this.hours = 6;
+        }
+            
         }
     }
 
     public void swichDayOutsideOfBedroom() {
         {
-
+        if(this.hours==0)
+        {
+            this.days+=0;
+            this.hours+=16;
+        }
+        else{
             this.days += 1;
             this.hours = 16;
+        }
+            
         }
     }
 
     public void swichHour() {
         if (this.hours == 0) 
         {
-            System.out.println("you need to sleep");
+        
         } 
         else if (this.hours == 23) 
         {
             this.hours -= 23;
+            this.days+=1;
         }
         else 
         {
