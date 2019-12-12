@@ -7,7 +7,7 @@ public class Game {
     Time time = new Time();
 
     private String name;
-    private Parser parser;
+   
     private Room currentRoom;
     private String pName;
     private Room nextRoom;
@@ -24,7 +24,7 @@ public class Game {
 
     public Game() {
         createRooms();
-        parser = new Parser();
+       
     }
 
     private static Game sSoleInstance;
@@ -472,31 +472,7 @@ public class Game {
         nextRoom.setUnlocked(true);
     }
 
-    private void buy(Command command) {
-        String item = command.getSecondWord();
-
-        for (Item var : currentRoom.items) {
-            if (!var.getName().equals(item)) {
-                continue;
-            }
-
-            if (!var.isBuyable()) {
-                return;
-            }
-
-            if (m1.getBalance() < var.getPrice()) {
-                return;
-            }
-
-            currentRoom.items.remove(var);
-            m1.Buy(var.getPrice());
-            inventory.add(var);
-            var.setBuyable(false);
-
-            return;
-        }
-
-    }
+    
 
     public void sleep() {
         if (currentRoom.getShortDescription() == "in the bedroom") {
