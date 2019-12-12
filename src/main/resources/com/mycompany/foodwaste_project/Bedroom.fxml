@@ -6,7 +6,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1540.0" styleClass="bodyb" stylesheets="@GUI_Images/bedroom.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.foodwaste_project.BedroomController">
@@ -35,26 +37,53 @@
             <Image url="@GUI_Images/Character.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="statsButton" mnemonicParsing="false" onAction="#viewStats" text="Stats" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <Button fx:id="smartphoneButton" mnemonicParsing="false" onAction="#openSmartphone" text="Phone" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <GridPane.margin>
-            <Insets bottom="30.0" left="70.0" />
-         </GridPane.margin>
-      </Button>
-      <Button fx:id="inventoryButton" mnemonicParsing="false" onAction="#openInventory" text="Inventory" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <GridPane.margin>
-            <Insets left="150.0" />
-         </GridPane.margin>
-      </Button>
-      <Button fx:id="buttonSleep" mnemonicParsing="false" onAction="#sleep" prefWidth="52.0" text="Sleep" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <GridPane.margin>
-            <Insets left="240.0" />
-         </GridPane.margin>
-      </Button>
-      <Button fx:id="roomInventoryButton" mnemonicParsing="false" onAction="#onActionRoomInventoryButton" text="Room Inventory" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <GridPane.margin>
-            <Insets left="310.0" />
-         </GridPane.margin>
-      </Button>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="471.0" style="-fx-background-color: gray;">
+               <children>
+                  <Button fx:id="statsButton" mnemonicParsing="false" onAction="#viewStats" text="Stats">
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="smartphoneButton" mnemonicParsing="false" onAction="#openSmartphone" text="Phone">
+                     <HBox.margin>
+                        <Insets right="15.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="inventoryButton" mnemonicParsing="false" onAction="#openInventory" text="Inventory">
+                     <HBox.margin>
+                        <Insets right="15.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="roomInventoryButton" mnemonicParsing="false" onAction="#onActionRoomInventoryButton" text="Room Inventory">
+                     <HBox.margin>
+                        <Insets right="15.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonSleep" mnemonicParsing="false" onAction="#sleep" prefHeight="31.0" prefWidth="59.0" text="Sleep">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </GridPane>
