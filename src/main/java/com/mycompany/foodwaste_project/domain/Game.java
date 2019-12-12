@@ -239,12 +239,14 @@ public class Game
         
         // Adding items to the specific rooms
         
-        Item uncookedchicken, meat, bread, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter;
+        Item uncookedchicken, meat, bread, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter, brownRice, meatloaf;
         
         milk = new Item("milk", "This is milk!", 14, true, true, 20);
         meat = new Item("meat", "This is meat!", 35, true, true, 30);
         cake = new Item("cake", "This is a whole cake!", 60, true, true, 50);
         rice = new Item("rice", "This is 500g of white rice!", 25, true, true, 50);
+        meatloaf = new Item("meatloaf", "This is meatloaf", 30, true, true, 30);
+        brownRice = new Item("brownRice", "This is brownRice!", 60, true, true, 20);
         ryebread = new Item("ryebread", "This is a loaf of ryebread", 25, true, true, 25);
         cheeseburger = new Item("cheeseburger", "This is a cheeseburger!", 10, true, true, 30);
         rice100g = new Item("100g-Rice", "This is 100g of rice", 5, true, true, 10 );
@@ -258,7 +260,7 @@ public class Game
         key = new Item("key", "This is your apartment key", 0, false, false, 0);
         letter = new Item("letter", "This is a letter for your grandma", 0, false, false, 0);
         uncookedchicken = new Item("uncooked-chicken", "This is uncooked chicken", 0, false, false, 0);
-
+        
         outsideItems.add(key);
         
         apartmentItems.add(letter);
@@ -269,7 +271,8 @@ public class Game
         supermarkedItems.add(rice);
         supermarkedItems.add(ryebread);
         supermarkedItems.add(bread);
-
+        supermarkedItems.add(brownRice);
+        supermarkedItems.add(meatloaf);
         kitchenItems.add(uncookedchicken);
         
         mcDonaldsItems.add(cheeseburger);
@@ -915,7 +918,7 @@ public class Game
             System.out.println("HP: " + p1.getHealth());
             System.out.println("Hunger: " + p1.getHunger());
             System.out.println("Score: " + point.getPoint()); */
-            System.exit(0);            
+            
         }    
     }
     
