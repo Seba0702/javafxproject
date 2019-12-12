@@ -82,7 +82,7 @@ public class OrderTableController implements Initializable {
             labelnoMoney.setText("Bought.");
             cbItems.getValue().setBuyable(false);
             g1.Buy(cbItems.getValue().getPrice());
-        //  g1.getRoom().getArray().remove(cbItems.getValue());
+            g1.getRoom().getArray().remove(cbItems.getValue());
             g1.getInventory().add(cbItems.getValue());
             System.out.println(String.valueOf(g1.getInventory()));
             

@@ -8,8 +8,8 @@ public class Characters {
     public int minHealth;
     
     public Characters() {
-        health = 10;
-        hunger = 10;
+        health = 100;
+        hunger = 30;
         damage = 5;
         minHealth = 0;
     }
