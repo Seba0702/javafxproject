@@ -1,7 +1,6 @@
 package com.mycompany.foodwaste_project.domain;
 
 //import java.util.Scanner;
-import com.mycompany.foodwaste_project.InventoryController;
 import java.util.ArrayList;
 
 
@@ -239,7 +238,7 @@ public class Game
         
         // Adding items to the specific rooms
         
-        Item uncookedchicken, meat, bread, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter, brownRice, meatloaf, appel, greenBeans, pineapple, onions, cucumber, tomatos;
+        Item uncookedchicken, meat, bread, milk, cake, rice, ryebread, cheeseburger, rice100g, burger, chickennuggets, key, letter, brownRice, meatloaf, apple, pineapple, onions, cucumber, tomatos;
         
         milk = new Item("milk", "This is milk!", 14, true, true, 20);
         meat = new Item("meat", "This is meat!", 35, true, true, 30);
@@ -252,7 +251,7 @@ public class Game
         rice100g = new Item("100g-Rice", "This is 100g of rice", 5, true, true, 10 );
         burger = new Item("burger", "This is a burger!", 10, true, true, 28);
         chickennuggets = new Item("chickennuggets", "These are chicken nuggets", 25, true, true, 40);
-        appel = new  Item("appel","This is a apple ", 20, true, true, 5);
+        apple = new  Item("apple","This is a apple ", 20, true, true, 5);
         pineapple = new Item("pineapple", "This is pineapple", 15, true, true, 25);
         onions = new Item("onions", "This are onions", 10, true, true, 30);
         cucumber = new Item("cucumber", "This is cucumber", 8, true, true, 20);
@@ -284,15 +283,13 @@ public class Game
         mcDonaldsItems.add(chickennuggets);
         
         loesMarketItems.add(rice100g);
-        loesMarketItems.add(appel);
-        loesMarketItems.add(greenBeans);
+        loesMarketItems.add(apple);
         loesMarketItems.add(pineapple);
         loesMarketItems.add(onions);
         loesMarketItems.add(cucumber);
+        loesMarketItems.add(tomatos);
         
-        
-        
-        
+
         outside.fillArray(outsideItems);
         supermarked.fillArray(supermarkedItems);
         kitchen.fillArray(kitchenItems);
