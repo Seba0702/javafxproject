@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1540.0" styleClass="bodyi2" stylesheets="@Startmenu_asset/intro_2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.foodwaste_project.Intro2Controller">
    <children>
-      <Text layoutX="231.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is a  game about food waste as u might have guessed">
+      <Text layoutX="231.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is a  game about food waste as you might have guessed">
          <font>
             <Font size="20.0" />
          </font></Text>
