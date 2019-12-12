@@ -94,6 +94,7 @@ public class OrderTableController implements Initializable {
     @FXML
     private void onActionUpdateButton(ActionEvent event) {
         labelPrice.setText(String.valueOf(cbItems.getValue().getPrice()));
+        labelBalance.setText(String.valueOf(g1.getMoney()));
     }
     
 }
