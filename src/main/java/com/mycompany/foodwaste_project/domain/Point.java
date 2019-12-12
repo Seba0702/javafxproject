@@ -36,7 +36,7 @@ public class Point {
     }
 
     public double getPoint() {
-        return this.index += 1;
+        return index;
     }
 
 }

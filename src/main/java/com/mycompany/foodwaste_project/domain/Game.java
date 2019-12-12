@@ -73,6 +73,11 @@ public class Game
         return pName;
     }
     
+    public double getPoint()
+    {
+        return point.getPoint();
+    }
+    
     public void setName(String value)
     {
         pName = value;

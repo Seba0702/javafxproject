@@ -12,17 +12,6 @@ public class Item {
     private double hoursToRot = 15;
 
 
-
-    public Item() {
-        this.name = null;
-        this.description = null;
-        this.price = 0;
-        this.nutrition = 0;
-        this.isFood = false;
-    }
-
-    
-    
     public Item(String name, String description, int price, boolean buyable, boolean isFood, int nutrition)
     {
     
