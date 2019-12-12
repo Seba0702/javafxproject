@@ -63,6 +63,8 @@ public class InventoryController implements Initializable {
 
     @FXML
     private void dropItem(ActionEvent event) {
+        
+        
     }
     
 }

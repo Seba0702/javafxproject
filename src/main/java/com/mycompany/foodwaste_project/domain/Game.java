@@ -889,7 +889,7 @@ public class Game
             System.out.println("Score: " + point.getPoint()); */
             System.exit(0);            
         }    
-    }
+    } 
     
     private void listRoomItems() {
 
