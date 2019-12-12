@@ -12,7 +12,7 @@ public class Intro2Controller implements Initializable {
 
 
     @FXML
-    private Button game;
+    private Button Next;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -21,7 +21,7 @@ public class Intro2Controller implements Initializable {
     
     @FXML
     private void startGame(ActionEvent event) throws IOException {
-        App.setRoot("Outside");
+        App.setRoot("intro3");
     }
 
 }
