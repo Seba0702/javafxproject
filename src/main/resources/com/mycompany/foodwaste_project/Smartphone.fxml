@@ -35,6 +35,9 @@
       </Button>
    </bottom>
    <left>
-      <Button fx:id="smsButton" mnemonicParsing="false" onAction="#onActionSMS" prefHeight="26.0" prefWidth="374.0" text="SMS" BorderPane.alignment="CENTER" />
+      <Button fx:id="smsButton" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onActionSMS" prefHeight="26.0" prefWidth="266.0" text="SMS" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin></Button>
    </left>
 </BorderPane>

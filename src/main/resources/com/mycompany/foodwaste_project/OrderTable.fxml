@@ -19,41 +19,53 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ChoiceBox fx:id="cbItems" prefWidth="150.0" />
+      <ChoiceBox fx:id="cbItems" prefHeight="26.0" prefWidth="132.0">
+         <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin></ChoiceBox>
       <Label text="Balance" GridPane.columnIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
       </Label>
       <Label text="HP" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="50.0" top="15.0" />
          </GridPane.margin>
       </Label>
       <Label text="Hunger" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="50.0" top="15.0" />
          </GridPane.margin>
       </Label>
       <Label fx:id="labelBalance" text="Label" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
       </Label>
       <Label fx:id="labelHealth" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="50.0" top="15.0" />
          </GridPane.margin>
       </Label>
       <Label fx:id="labelHunger" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="50.0" top="15.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="buyButton" mnemonicParsing="false" onAction="#onActionBuyButton" text="Buy" GridPane.rowIndex="2" />
+      <Button fx:id="buyButton" mnemonicParsing="false" onAction="#onActionBuyButton" text="Buy" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin></Button>
       <Label prefHeight="18.0" prefWidth="35.0" text="Price: " GridPane.halignment="LEFT" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets />
+            <Insets left="15.0" />
          </GridPane.margin></Label>
       <Label fx:id="labelPrice" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="28.0" GridPane.rowIndex="1">
          <GridPane.margin>
@@ -66,7 +78,7 @@
       </Label>
       <Button fx:id="updateButton" mnemonicParsing="false" onAction="#onActionUpdateButton" prefHeight="26.0" prefWidth="74.0" text="Update" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="65.0" />
          </GridPane.margin>
       </Button>
    </children>

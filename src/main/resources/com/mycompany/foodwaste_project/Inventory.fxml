@@ -31,16 +31,33 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <ChoiceBox fx:id="cbItems" prefWidth="150.0" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-            <Button fx:id="donateButton" mnemonicParsing="false" onAction="#donateItem" text="Donate" GridPane.columnIndex="1" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" text="Use" GridPane.columnIndex="1" />
-            <Button fx:id="throwoutButton" mnemonicParsing="false" onAction="#throwoutItem" text="Throw out" GridPane.columnIndex="1" />
-            <Button fx:id="useButton" mnemonicParsing="false" onAction="#useItem" text="Use" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-            <Button fx:id="dropButton" mnemonicParsing="false" onAction="#dropItem" text="Drop" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
-            <Button fx:id="eatButton" mnemonicParsing="false" onAction="#eatItem" text="Eat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <ChoiceBox fx:id="cbItems" prefWidth="150.0" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="15.0" top="15.0" />
+               </GridPane.margin></ChoiceBox>
+            <Button fx:id="donateButton" mnemonicParsing="false" onAction="#donateItem" text="Donate" GridPane.columnIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="15.0" top="15.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="throwoutButton" mnemonicParsing="false" onAction="#throwoutItem" text="Throw out" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="useButton" mnemonicParsing="false" onAction="#useItem" text="Use" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="15.0" top="15.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="dropButton" mnemonicParsing="false" onAction="#dropItem" text="Drop" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="eatButton" mnemonicParsing="false" onAction="#eatItem" text="Eat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="15.0" />
+               </GridPane.margin></Button>
             <Label fx:id="messageLabel3" prefHeight="18.0" prefWidth="298.0" GridPane.valignment="BOTTOM" />
             <Label fx:id="itemStatus" prefHeight="18.0" prefWidth="314.0" />
-            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#onActionUpdateButton" text="Update" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#onActionUpdateButton" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Label fx:id="messageLabel" prefHeight="18.0" prefWidth="302.0" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="70.0" />
