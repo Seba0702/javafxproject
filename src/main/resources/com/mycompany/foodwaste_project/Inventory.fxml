@@ -38,6 +38,7 @@
             <Button fx:id="useButton" mnemonicParsing="false" onAction="#useItem" text="Use" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
             <Button fx:id="dropButton" mnemonicParsing="false" onAction="#dropItem" text="Drop" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
             <Button fx:id="eatButton" mnemonicParsing="false" onAction="#eatItem" text="Eat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <Label fx:id="messageLabel" prefHeight="18.0" prefWidth="298.0" text="Label" GridPane.valignment="BOTTOM" />
          </children>
       </GridPane>
   </children>

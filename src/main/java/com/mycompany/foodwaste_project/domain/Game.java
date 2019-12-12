@@ -1,6 +1,7 @@
 package com.mycompany.foodwaste_project.domain;
 
 //import java.util.Scanner;
+import com.mycompany.foodwaste_project.InventoryController;
 import java.util.ArrayList;
 
 
@@ -10,6 +11,7 @@ public class Game
 
     Item item = new Item();
     Time time = new Time();
+    
     private String name;
     private Parser parser;
     private Room currentRoom;
@@ -18,7 +20,7 @@ public class Game
     private String notificationMessage, questMessage;
     
  
-    
+    //InventoryController ic = new InventoryController();
     Characters p1 = new Characters();
     Point point = new Point();
     Smartphone ph = new Smartphone();
@@ -432,9 +434,9 @@ public class Game
         else if (commandWord == CommandWord.PICKUP) {
             pickUp(command);
         }
-        else if (commandWord == CommandWord.DROP) {
-            dropItem(command);
-        }
+        /*else if (commandWord == CommandWord.DROP) {
+            dropItem();
+        }*/
         else if (commandWord == CommandWord.INVENTORY) {
             checkInventory(command);
         }
@@ -450,21 +452,21 @@ public class Game
         else if (commandWord == CommandWord.BUY) {
             buy(command);
         }
-        else if (commandWord == CommandWord.THROWOUT) {
+        /*else if (commandWord == CommandWord.THROWOUT) {
             throwout(command);
-        }
-        else if (commandWord == CommandWord.DONATE) {
+        }*/
+        /*else if (commandWord == CommandWord.DONATE) {
             donate(command);
-        }
-        else if (commandWord == CommandWord.EAT) {
+        }*/
+        /*else if (commandWord == CommandWord.EAT) {
             eat(command);
-        }
-        else if (commandWord == CommandWord.DRINK) {
+        }*/
+        /*else if (commandWord == CommandWord.DRINK) {
             eat(command);
-        }
-        else if (commandWord == CommandWord.USE) {
+        }*/
+        /*else if (commandWord == CommandWord.USE) {
             useItem(command);
-        } 
+        }*/ 
         else if (commandWord == CommandWord.PHONE) {
             phone();
         }
@@ -477,9 +479,9 @@ public class Game
       //  parser.showCommands();
     }
     
-    private void eat(Command command) 
+    public void eat(String item) 
     {
-        String item = command.getSecondWord();
+        //String item = command.getSecondWord();
         
         for (Item var : inventory)
         {
@@ -528,9 +530,9 @@ public class Game
      //   System.out.print("This item is not in your inventory.");
     }
    
-    private void throwout(Command command) {
+    public void throwout(String item) {
         
-        String item = command.getSecondWord();
+        //String item = command.getSecondWord();
 
         for (Item var : inventory) {
             
@@ -544,6 +546,7 @@ public class Game
             
             if (!var.isFood())
             {
+                //ic.messageLabel.setText("You just threw some " + var.getName() + " out");
               //  System.out.println("You just threw some " + var.getName() + " out");
                 return;    
             }
@@ -551,6 +554,7 @@ public class Game
             if (var.getSpoiledStatus())
             {
                 point.setMinusPoint(5);
+                //ic.messageLabel.setText("You just lost 10 points, because you threw something spoiled in the trash.");
               //  System.out.println("You just lost 10 points, because you threw something spoiled in the trash.");
                 inventory.remove(var);
                 return;
@@ -558,17 +562,19 @@ public class Game
             else 
             {
                 point.setMinusPoint(10);
+                //ic.messageLabel.setText("You just lost 10 points, because you threw something ediable in the trash.");
               //  System.out.println("You just lost 10 points, because you threw something ediable in the trash.");
                 inventory.remove(var);
                 return;
             } 
         }
+        //ic.messageLabel.setText("There is no such item in your inventory");
       //  System.out.println("There is no such item in your inventory");
     }
     
-    private void donate(Command command) {
+    public void donate(String item) {
         
-        String item = command.getSecondWord();
+        //String item = command.getSecondWord();
 
         for (Item var : inventory) 
         {
@@ -577,18 +583,23 @@ public class Game
             
             if (!var.isFood())
             {
+                
+                //ic.messageLabel.setText("This is not food!");
                 //System.out.println("This is not food!");
                 return;
             }
 
             if (var.getSpoiledStatus()) 
             {
-              //  System.out.println("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
+                
+                //ic.messageLabel.setText("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
+//  System.out.println("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
                 inventory.remove(var);
                 return;
             } 
             else 
             {
+                //ic.messageLabel.setText("Thanks! You just donated some " + var.getName() + " to the foodbank. The food will now be used to feed people in need!");
                 point.setPlusPoint(10);
              //   System.out.println("Thanks! You just donated some " + var.getName() + " to the foodbank. The food will now be used to feed people in need!");
                 inventory.remove(var);
@@ -611,15 +622,18 @@ public class Game
             {
                 inventory.add(var);
                 currentRoom.items.remove(var);
+                //ic.messageLabel.setText("You picked up some " + var.getName());
             //    System.out.println("You picked up some "+ var.getName());
                 return;
             }
             else
             {
+                //ic.messageLabel.setText("Do not try to steal!");
             //    System.out.println("Do not try to steal!");
                 return;
             }
-        } 
+        }
+        //ic.messageLabel.setText("There is no such item here");
     //    System.out.println("There is no such item here");       
     }
     
@@ -637,9 +651,9 @@ public class Game
         }       
     }
     
-    private void dropItem(Command command)
+    public void dropItem(String item)
     {     
-        String item = command.getSecondWord();
+        //String item = command.getSecondWord();
         
         for (Item var : inventory)
         {
@@ -648,19 +662,22 @@ public class Game
             
             inventory.remove(var);
             currentRoom.items.add(var);
+            //ic.messageLabel.setText("You dropped some " + item);
            // System.out.println("You dropped some " + item);
             return;
         }
         
+        //ic.messageLabel.setText("No such item was found in your inventory. Check your inventory with 'inventory'.");
        // System.out.println("No such item was found in your inventory. Check your inventory with 'inventory'."); 
     }
      
-    private void useItem(Command command)
+    public void useItem(String item)
     {
-        String item = command.getSecondWord();
+        //String item = command.getSecondWord();
         
         if (inventory.isEmpty())
         {
+            //ic.messageLabel.setText("Your inventory is empty.");
          //   System.out.print("Your inventory is empty.");
             return;
         }
@@ -676,6 +693,7 @@ public class Game
                 
                 if (quest.getDay() != time.getDateOfDays())
                 {
+                    //ic.messageLabel.setText("You can't use that item yet.");
                    // System.out.print("You can't use that item yet.");
                     return;
                 }
@@ -889,7 +907,7 @@ public class Game
             System.out.println("Score: " + point.getPoint()); */
             System.exit(0);            
         }    
-    } 
+    }
     
     private void listRoomItems() {
 
