@@ -70,10 +70,12 @@ public class InventoryController implements Initializable {
 
         if (cbItems.getValue().getSpoiledStatus()) {
 
-            messageLabel.setText("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
+            messageLabel.setText("You can't donate spoiled food.. You should");
+            messageLabel2.setText("just throw the spoiled food in the trash.");
 
         } else {
-            messageLabel.setText("Thanks! You just donated some " + cbItems.getValue().getName() + " to the foodbank. The food will now be used to feed people in need!");
+            messageLabel.setText("Thanks! You just donated some " + cbItems.getValue().getName() + " to the foodbank.");
+            messageLabel2.setText("The food will now be used to feed people in need!");
         }
 
     }
@@ -84,12 +86,18 @@ public class InventoryController implements Initializable {
 
         if (!cbItems.getValue().isFood()) {
             messageLabel.setText("You just threw some " + cbItems.getValue().getName() + " out");
+            messageLabel2.setText("");
+            messageLabel3.setText("");
         }
 
         if (cbItems.getValue().getSpoiledStatus()) {
-            messageLabel.setText("You just lost 10 points, because you threw something spoiled in the trash.");
+            messageLabel.setText("You just lost 10 points, because you threw ");
+            messageLabel2.setText("something spoiled in the trash.");
+            messageLabel3.setText("");
         } else {
-            messageLabel.setText("You just lost 10 points, because you threw something ediable in the trash.");
+            messageLabel.setText("You just lost 10 points, because you threw");
+            messageLabel2.setText("");
+            messageLabel3.setText("something ediable in the trash.");
         }
 
     }
@@ -107,13 +115,17 @@ public class InventoryController implements Initializable {
 
         if (cbItems.getValue().getSpoiledStatus()) {
             messageLabel.setText("You just ate spoiled food, and lost 10 hp");
+            messageLabel2.setText("");
+            messageLabel3.setText("");
         } else {
             if ((g1.getHunger() + cbItems.getValue().getNutrition()) >= 100) {
                 messageLabel.setText("You just ate a " + cbItems.getValue().getName() + " and refilled your hunger by " + cbItems.getValue().getNutrition());
-                messageLabel2.setText("You are now more than full, and wasted " + (g1.getHunger() + cbItems.getValue().getNutrition() - 100) + " nutrition");
-                messageLabel3.setText("Over eating is one of the leading causes of food waste. Try to only eat as much food as you need.");
+                messageLabel2.setText("You are now more than full, and wasted ");
+                messageLabel3.setText((g1.getHunger() + cbItems.getValue().getNutrition() - 100) + " nutrition");
             } else {
                 messageLabel.setText("You just ate a " + cbItems.getValue().getName() + " and refilled your hunger by " + cbItems.getValue().getNutrition());
+                messageLabel2.setText("");
+                messageLabel3.setText("");
             }
         }
     }
@@ -123,6 +135,8 @@ public class InventoryController implements Initializable {
         g1.getInventory().remove(cbItems.getValue());
         g1.dropItem(cbItems.getValue().toString());
         messageLabel.setText("You dropped some " + cbItems.getValue().getName());
+        messageLabel2.setText("");
+        messageLabel3.setText("");
         return;
     }
 
