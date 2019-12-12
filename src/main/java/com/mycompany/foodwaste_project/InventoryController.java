@@ -36,7 +36,7 @@ public class InventoryController implements Initializable {
     @FXML
     private ChoiceBox<Item> cbItems = new ChoiceBox<>();
     @FXML
-    public Label messageLabel;
+    private Label messageLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,23 +52,54 @@ public class InventoryController implements Initializable {
     @FXML
     private void donateItem(ActionEvent event) {
         g1.donate(cbItems.getValue().toString());
-        
+
+        if (!cbItems.getValue().isFood()) {
+
+            messageLabel.setText("This is not food!");
+            return;
+        }
+
+        if (cbItems.getValue().getSpoiledStatus()) {
+
+            messageLabel.setText("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
+
+            return;
+        } else {
+            messageLabel.setText("Thanks! You just donated some " + cbItems.getValue().getName() + " to the foodbank. The food will now be used to feed people in need!");
+            return;
+        }
+
     }
 
     @FXML
     private void throwoutItem(ActionEvent event) {
         g1.throwout(cbItems.getValue().toString());
 
+        if (!cbItems.getValue().isFood()) {
+            messageLabel.setText("You just threw some " + cbItems.getValue().getName() + " out");
+            return;
+        }
+
+        if (cbItems.getValue().getSpoiledStatus()) {
+            messageLabel.setText("You just lost 10 points, because you threw something spoiled in the trash.");
+            return;
+        } else {
+            messageLabel.setText("You just lost 10 points, because you threw something ediable in the trash.");
+            return;
+        }
+
     }
 
     @FXML
     private void useItem(ActionEvent event) {
         g1.useItem(cbItems.getValue().toString());
+
     }
 
     @FXML
     private void eatItem(ActionEvent event) {
         g1.eat(cbItems.getValue().toString());
+
     }
 
     @FXML

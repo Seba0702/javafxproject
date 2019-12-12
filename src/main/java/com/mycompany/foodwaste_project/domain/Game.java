@@ -431,9 +431,9 @@ public class Game
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
-        else if (commandWord == CommandWord.PICKUP) {
+        /*else if (commandWord == CommandWord.PICKUP) {
             pickUp(command);
-        }
+        }*/
         /*else if (commandWord == CommandWord.DROP) {
             dropItem();
         }*/
@@ -610,9 +610,9 @@ public class Game
     //    System.out.println("There is no such item here");
     }
     
-    private void pickUp(Command command)
+    public void pickUp(String item)
     {
-        String item = command.getSecondWord();      
+        //String item = command.getSecondWord();      
 
         for (Item var : currentRoom.items)
         {

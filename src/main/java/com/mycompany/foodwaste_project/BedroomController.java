@@ -31,6 +31,8 @@ public class BedroomController implements Initializable {
     private Button inventoryButton;
     @FXML
     private Button buttonSleep;
+    @FXML
+    private Button roomInventoryButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -105,6 +107,17 @@ public class BedroomController implements Initializable {
         
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sleepNotification.fxml"));
+        Parent parent = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(parent, 600, 241));
+        stage.show();
+    }
+
+    @FXML
+    private void onActionRoomInventoryButton(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RoomInventory.fxml"));
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
