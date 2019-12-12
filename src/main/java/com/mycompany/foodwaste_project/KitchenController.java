@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class KitchenController implements Initializable {
-
+    DonateNotificationController d1 = new DonateNotificationController();
     Game g1 = Game.getInstance();
     
     
@@ -48,7 +48,7 @@ public class KitchenController implements Initializable {
         g1.goToRoom("apartment");
     }
     else {
-        
+    d1.makeNotification();
     }    
     }
 
@@ -61,6 +61,7 @@ public class KitchenController implements Initializable {
     }
         else 
         {
+        d1.makeNotification();
         }
         
         }

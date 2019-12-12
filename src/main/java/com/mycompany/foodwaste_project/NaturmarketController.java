@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class NaturmarketController implements Initializable {
-    
+    DonateNotificationController d1 = new DonateNotificationController();
     Game g1 = Game.getInstance();
     
     @FXML
@@ -47,7 +47,7 @@ public class NaturmarketController implements Initializable {
         g1.goToRoom("outside");
     }
     else {
-        
+        d1.makeNotification();
     }
     }
     @FXML

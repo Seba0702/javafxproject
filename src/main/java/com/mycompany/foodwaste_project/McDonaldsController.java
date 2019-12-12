@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class McDonaldsController implements Initializable {
-    
+    DonateNotificationController d1 = new DonateNotificationController();
     Game g1 = Game.getInstance();
     
     @FXML
@@ -49,7 +49,7 @@ public class McDonaldsController implements Initializable {
         
     }
     else {
-        
+    d1.makeNotification();
     }
     }
     @FXML

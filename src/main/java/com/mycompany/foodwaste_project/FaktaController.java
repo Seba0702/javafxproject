@@ -19,7 +19,7 @@ import javafx.stage.StageStyle;
 public class FaktaController implements Initializable {
 
     Game g1 = Game.getInstance();
-    
+    DonateNotificationController d1 = new DonateNotificationController();
     @FXML
     private Button outside;
     @FXML
@@ -46,8 +46,9 @@ public class FaktaController implements Initializable {
         {    App.setRoot("Outside");
         g1.goToRoom("outside");
     }
-    else {
-        
+    else
+    {
+        d1.makeNotification();
     }
     }
     @FXML
