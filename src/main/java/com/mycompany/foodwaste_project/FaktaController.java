@@ -57,7 +57,7 @@ public class FaktaController implements Initializable {
         Parent parent = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.setScene(new Scene(parent, 200, 400));
+        stage.setScene(new Scene(parent, 328, 242));
         stage.show();
     }
 

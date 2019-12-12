@@ -37,10 +37,20 @@ public class InventoryController implements Initializable {
     private ChoiceBox<Item> cbItems = new ChoiceBox<>();
     @FXML
     private Label messageLabel;
+    @FXML
+    private Label itemStatus;
+    @FXML
+    private Button updateButton;
+    @FXML
+    private Label messageLabel3;
+    @FXML
+    private Label messageLabel2;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cbItems.getItems().addAll(g1.getInventory());
+        cbItems.getSelectionModel().select(0);
+
     }
 
     @FXML
@@ -56,17 +66,14 @@ public class InventoryController implements Initializable {
         if (!cbItems.getValue().isFood()) {
 
             messageLabel.setText("This is not food!");
-            return;
         }
 
         if (cbItems.getValue().getSpoiledStatus()) {
 
             messageLabel.setText("You can't donate spoiled food.. You should just throw the spoiled food in the trash.");
 
-            return;
         } else {
             messageLabel.setText("Thanks! You just donated some " + cbItems.getValue().getName() + " to the foodbank. The food will now be used to feed people in need!");
-            return;
         }
 
     }
@@ -77,21 +84,19 @@ public class InventoryController implements Initializable {
 
         if (!cbItems.getValue().isFood()) {
             messageLabel.setText("You just threw some " + cbItems.getValue().getName() + " out");
-            return;
         }
 
         if (cbItems.getValue().getSpoiledStatus()) {
             messageLabel.setText("You just lost 10 points, because you threw something spoiled in the trash.");
-            return;
         } else {
             messageLabel.setText("You just lost 10 points, because you threw something ediable in the trash.");
-            return;
         }
 
     }
 
     @FXML
     private void useItem(ActionEvent event) {
+
         g1.useItem(cbItems.getValue().toString());
 
     }
@@ -100,6 +105,17 @@ public class InventoryController implements Initializable {
     private void eatItem(ActionEvent event) {
         g1.eat(cbItems.getValue().toString());
 
+        if (cbItems.getValue().getSpoiledStatus()) {
+            messageLabel.setText("You just ate spoiled food, and lost 10 hp");
+        } else {
+            if ((g1.getHunger() + cbItems.getValue().getNutrition()) >= 100) {
+                messageLabel.setText("You just ate a " + cbItems.getValue().getName() + " and refilled your hunger by " + cbItems.getValue().getNutrition());
+                messageLabel2.setText("You are now more than full, and wasted " + (g1.getHunger() + cbItems.getValue().getNutrition() - 100) + " nutrition");
+                messageLabel3.setText("Over eating is one of the leading causes of food waste. Try to only eat as much food as you need.");
+            } else {
+                messageLabel.setText("You just ate a " + cbItems.getValue().getName() + " and refilled your hunger by " + cbItems.getValue().getNutrition());
+            }
+        }
     }
 
     @FXML
@@ -108,6 +124,15 @@ public class InventoryController implements Initializable {
         g1.dropItem(cbItems.getValue().toString());
         messageLabel.setText("You dropped some " + cbItems.getValue().getName());
         return;
+    }
+
+    @FXML
+    private void onActionUpdateButton(ActionEvent event) {
+        itemStatus.setText("There is: " + cbItems.getValue().getHoursToRot() + " hours before the item is rotten.");
+
+        if (cbItems.getValue().getSpoiledStatus() == true) {
+            itemStatus.setText(cbItems.getValue().getName() + " is spoiled!");
+        }
     }
 
 }

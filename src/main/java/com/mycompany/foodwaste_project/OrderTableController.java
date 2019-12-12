@@ -37,6 +37,8 @@ public class OrderTableController implements Initializable {
     private Label labelPrice;
     @FXML
     private Label labelnoMoney;
+    @FXML
+    private Button updateButton;
     /**
      * Initializes the controller class.
      */
@@ -56,7 +58,7 @@ public class OrderTableController implements Initializable {
 
         //cbItems.getSelectionModel().selectedItemProperty().addListener( e -> System.out.println(g1.getPrice()));
         cbItems.getSelectionModel().select(0); //.addListener( e -> labelPrice.setText(String.valueOf(g1.getRoom().getArray().get(1).getPrice())));
-        
+
         
     }   
     
@@ -65,7 +67,7 @@ public class OrderTableController implements Initializable {
     @FXML
     private void onActionBuyButton(ActionEvent event) {
         
-        labelPrice.setText(String.valueOf(cbItems.getValue().getPrice()));
+        
         
         if(g1.getMoney() < cbItems.getValue().getPrice()) {
             labelnoMoney.setText("You do not have enough money.");
@@ -87,6 +89,11 @@ public class OrderTableController implements Initializable {
             return;
         }
         
+    }
+
+    @FXML
+    private void onActionUpdateButton(ActionEvent event) {
+        labelPrice.setText(String.valueOf(cbItems.getValue().getPrice()));
     }
     
 }
