@@ -138,9 +138,24 @@ public class Game
         m1.balance = m1.balance-price;
     }
     
+    public Room getNextRoom(String roomName)
+    {
+        return currentRoom.getExit(roomName);
+    }
+    
     public void goToRoom(String roomName)
     {
-        currentRoom = currentRoom.getExit(roomName);
+        
+        nextRoom = currentRoom.getExit(roomName);
+        
+        if (nextRoom.isUnlocked() == false)
+        {
+            return;
+        }
+        else
+        {
+            currentRoom = nextRoom;
+        }
         
         time.swichHour();
         

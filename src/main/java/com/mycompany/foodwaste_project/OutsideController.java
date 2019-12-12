@@ -28,6 +28,8 @@ import javafx.stage.StageStyle;
  */
 public class OutsideController implements Initializable {
     
+    DonateNotificationController d1 = new DonateNotificationController();
+    
     Game g1 = Game.getInstance();
 
     @FXML
@@ -62,13 +64,22 @@ public class OutsideController implements Initializable {
     private void goApartment(ActionEvent event) throws IOException {
     if(g1.checkTimeIsZero()==!true)
     {
-        App.setRoot("Apartment");
-        g1.goToRoom("apartment");
+        if(g1.getNextRoom("apartment").isUnlocked() != false)
+        {
+            App.setRoot("Apartment");
+            g1.goToRoom("apartment"); 
          
+        }
+        else
+        {
+            System.out.println("Locked"); 
+            d1.makeNotification();
+        }     
     }
-    else 
+    else
     {
-        
+       
+        d1.makeNotification();
     }
     }
     @FXML
@@ -78,9 +89,9 @@ public class OutsideController implements Initializable {
         App.setRoot("mcDonalds");
         g1.goToRoom("mcdonalds");
     }
-    else 
+    else
     {
-        
+        d1.makeNotification();
     }
     }
     @FXML
@@ -93,7 +104,7 @@ public class OutsideController implements Initializable {
     }
     else
     {
-        
+        d1.makeNotification();
     }
     }
     @FXML
@@ -103,8 +114,9 @@ public class OutsideController implements Initializable {
         App.setRoot("Naturmarket");
         g1.goToRoom("naturmarket");
     }
-    else{
-        
+    else
+    {
+        d1.makeNotification();
     }
     }
     @FXML
